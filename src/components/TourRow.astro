@@ -1,0 +1,32 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  priceAdult: number;
+  badges?: string[];
+}
+
+const { id, title, priceAdult, badges =[] } = Astro.props;
+---
+<div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-4 flex flex-col md:flex-row items-start md:items-center justify-between border border-gray-100 gap-4">
+  <div class="flex flex-col flex-1">
+    {badges.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-2">
+        {badges.map((badge) => (
+          <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
+            {badge}
+          </span>
+        ))}
+      </div>
+    )}
+    <h3 class="text-lg font-bold text-gray-900 mb-1">{title}</h3>
+    <a href={`/excursions/${id}`} class="text-blue-500 text-sm font-medium hover:underline inline-flex items-center gap-1">
+      Читать описание <span class="text-lg leading-none">→</span>
+    </a>
+  </div>
+
+  <div class="flex flex-col items-end shrink-0 bg-[#f7f7f7] p-3 rounded-lg w-full md:w-40 text-right">
+    <span class="text-[11px] text-gray-500 uppercase tracking-wider font-semibold mb-1">Взрослый</span>
+    <span class="text-xl font-black text-gray-900">{priceAdult} ฿</span>
+  </div>
+</div>
