@@ -4,11 +4,8 @@ import CategorySection from '../components/CategorySection.astro';
 import TourRow from '../components/TourRow.astro';
 import { getCollection } from 'astro:content';
 
-// Запрашиваем все экскурсии из коллекции, которую мы настроили в Шаге 3
 const allExcursions = await getCollection('excursions');
 
-// Группируем экскурсии по категориям. 
-// Получится объект вида: { "Морские":[тур1, тур2], "Сухопутные": [тур3] }
 const groupedExcursions = allExcursions.reduce((acc, tour) => {
   const category = tour.data.category;
   if (!acc[category]) {
@@ -19,17 +16,17 @@ const groupedExcursions = allExcursions.reduce((acc, tour) => {
 }, {} as Record<string, typeof allExcursions>);
 ---
 
-<Layout title="Каталог экскурсий на Пхукете | MyThai Guru">
-  <div class="mb-10 text-center md:text-left">
-    <h1 class="text-4xl font-black uppercase tracking-wider mb-4">
-      Экскурсии <span class="text-blue-600">Пхукет</span>
+<Layout title="Bounty Tours | Экскурсии на Пхукете">
+  <div class="mb-10 text-center md:text-left border-b border-gray-200 pb-8">
+    <h1 class="text-4xl md:text-5xl font-black uppercase tracking-wider mb-4 text-gray-900">
+      Каталог <span class="text-blue-600">Bounty Tours</span>
     </h1>
-    <p class="text-gray-600">
-      Выберите лучшую экскурсию по самой выгодной цене. Бронирование онлайн через Telegram без предоплаты.
+    <p class="text-lg text-gray-600 max-w-2xl">
+      Ваш надежный гид на Пхукете. Организуем морские прогулки, поездки по островам и приключения в джунглях. Бронирование без предоплаты.
     </p>
   </div>
 
-  <div class="flex flex-col gap-8">
+  <div class="flex flex-col gap-10">
     {Object.entries(groupedExcursions).map(([category, tours]) => (
       <CategorySection title={category}>
         {tours.map((tour) => (
@@ -38,6 +35,7 @@ const groupedExcursions = allExcursions.reduce((acc, tour) => {
             title={tour.data.title} 
             priceAdult={tour.data.priceAdult} 
             badges={tour.data.badges} 
+            cover={tour.data.cover}
           />
         ))}
       </CategorySection>
