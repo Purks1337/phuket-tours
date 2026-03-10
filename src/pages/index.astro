@@ -35,14 +35,34 @@ const sortedCategories = Object.entries(groupedExcursions).sort(([categoryA], [c
 ---
 
 <Layout title="Bounty Tours | Экскурсии на Пхукете">
-  <div class="mb-10 text-center md:text-left">
-    <h1 class="text-4xl md:text-5xl font-black uppercase tracking-wider mb-2 text-gray-900">
+  <div class="mb-14 flex flex-col items-center text-center mt-4">
+    <h1 class="text-5xl md:text-7xl font-black mb-8 text-black tracking-tight">
       Экскурсии на Пхукете
     </h1>
-    <p class="text-sm text-gray-500">Бронируйте экскурсии в Telegram или WhatsApp</p>
+
+    <!-- Блок ссылок на мессенджеры -->
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 text-lg md:text-xl font-bold text-gray-900">
+      <span>Бронируйте в Telegram или Whatsapp</span>
+      
+      <div class="flex items-center gap-3">
+        <!-- Кнопка Telegram -->
+        <a href="https://t.me/bountytours" target="_blank" rel="noopener noreferrer" class="bg-[#0088cc] hover:bg-[#007ab8] text-white text-sm md:text-base py-2.5 px-5 rounded-full transition duration-300 shadow-sm flex items-center gap-2">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+          Telegram
+        </a>
+        
+        <!-- Кнопка WhatsApp -->
+        <a href="https://wa.me/66000000000" target="_blank" rel="noopener noreferrer" class="bg-[#25D366] hover:bg-[#20bd5a] text-white text-sm md:text-base py-2.5 px-5 rounded-full transition duration-300 shadow-sm flex items-center gap-2">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.996 0A12 12 0 0 0 0 12a11.968 11.968 0 0 0 1.611 6.002L0 24l6.155-1.614A11.966 11.966 0 0 0 11.996 24C18.621 24 24 18.62 24 12c0-6.621-5.379-12-12.004-12zm6.758 17.21c-.287.808-1.666 1.543-2.317 1.63-.538.071-1.22.146-3.82-1.026-3.328-1.493-5.467-4.93-5.632-5.155-.164-.225-1.344-1.787-1.344-3.411 0-1.624.84-2.42 1.139-2.736.298-.316.646-.395.861-.395.215 0 .43.002.616.012.203.01.474-.082.742.56.287.685.908 2.213.987 2.385.079.172.132.373.016.602-.116.229-.174.372-.346.574-.173.201-.365.441-.518.583-.17.186-.347.387-.15.753.197.366.883 1.488 1.787 2.3 1.168 1.048 2.253 1.371 2.616 1.522.363.15.576.128.793-.119.217-.247.937-1.085 1.184-1.458.247-.373.494-.312.827-.193.333.119 2.105.992 2.467 1.192.362.2.604.301.693.471.089.17.089.987-.155 1.672z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+
   </div>
 
-<!-- ШАПКА ТАБЛИЦЫ (скрыта на мобилках) -->
+  <!-- ШАПКА ТАБЛИЦЫ (скрыта на мобилках) -->
+
 <div class="hidden lg:grid grid-cols-[minmax(200px,_1fr)_auto_120px_120px_100px] gap-6 pt-4 pb-2 border-t border-gray-800 mb-6 font-bold text-[13px] text-gray-800 items-end">
   <div class="pl-4">Название экскурсии</div>
   <div class="w-[180px]"></div> <!-- Пустое место над кнопкой -->
