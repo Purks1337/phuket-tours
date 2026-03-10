@@ -1,8 +1,11 @@
 ---
-title: "Остров Джеймса Бонда"
-category: "Морские"
-priceAdult: 1700
-badges: ["Каноэ", "Пещеры"]
+title: "4 Жемчужины Андамана"
+subtitle: "Джеймс Бонд + Краби + Пхи Пхи с ночевкой"
+category: "🔥 ХИТЫ 🔥"
+pricePrefix: "от"
+priceAdult: 5100
+priceChild: 4300
+childAge: "4–11"
 cover: "../../assets/images/bond.jpg"
 ---
 

@@ -1,8 +1,10 @@
 ---
-title: "Острова Пхи-Пхи"
-category: "Морские"
-priceAdult: 1500
-badges: ["Хит продаж", "Русский гид"]
+title: "Острова Пхи Пхи"
+subtitle: "Есть ранний выезд"
+category: "🔥 ХИТЫ 🔥"
+priceAdult: 2400
+priceChild: 1950
+childAge: "4–11"
 cover: "../../assets/images/phiphi.jpg"
 ---
 

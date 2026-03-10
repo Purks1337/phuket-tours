@@ -1,8 +1,10 @@
 ---
 title: "Симиланские острова"
-category: "Морские"
-priceAdult: 2300
-badges: ["Must See", "Белый песок"]
+subtitle: "есть ранний выезд"
+category: "МОРСКИЕ"
+priceAdult: 2900
+priceChild: 2300
+childAge: "4–11"
 cover: "../../assets/images/similan.jpg"
 ---
 

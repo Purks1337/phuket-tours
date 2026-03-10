@@ -6,6 +6,7 @@ import { getCollection } from 'astro:content';
 
 const allExcursions = await getCollection('excursions');
 
+// 1. Группируем экскурсии по категориям
 const groupedExcursions = allExcursions.reduce((acc, tour) => {
   const category = tour.data.category;
   if (!acc[category]) {
@@ -14,30 +15,61 @@ const groupedExcursions = allExcursions.reduce((acc, tour) => {
   acc[category].push(tour);
   return acc;
 }, {} as Record<string, typeof allExcursions>);
+
+// 2. Задаем нужный порядок вывода категорий (в точности как они написаны в Markdown файлах)
+const categoryOrder =[
+  "🔥 ХИТЫ 🔥",
+  "МОРСКИЕ",
+  "НАЗЕМНЫЕ",
+  "НЕОБЫЧНЫЕ"
+];
+
+// 3. Сортируем сгруппированные категории согласно нашему массиву
+const sortedCategories = Object.entries(groupedExcursions).sort(([categoryA], [categoryB]) => {
+  const indexA = categoryOrder.indexOf(categoryA);
+  const indexB = categoryOrder.indexOf(categoryB);
+  
+  // Если категории нет в нашем списке, отправляем её в самый низ
+  return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
+});
 ---
 
 <Layout title="Bounty Tours | Экскурсии на Пхукете">
-  <div class="mb-10 text-center md:text-left border-b border-gray-200 pb-8">
-    <h1 class="text-4xl md:text-5xl font-black uppercase tracking-wider mb-4 text-gray-900">
-      Каталог <span class="text-blue-600">Bounty Tours</span>
+  <div class="mb-10 text-center md:text-left">
+    <h1 class="text-4xl md:text-5xl font-black uppercase tracking-wider mb-2 text-gray-900">
+      Экскурсии на Пхукете
     </h1>
-    <p class="text-lg text-gray-600 max-w-2xl">
-      Ваш надежный гид на Пхукете. Организуем морские прогулки, поездки по островам и приключения в джунглях. Бронирование без предоплаты.
-    </p>
+    <p class="text-sm text-gray-500">Бронируйте экскурсии в Telegram или WhatsApp</p>
   </div>
 
-  <div class="flex flex-col gap-10">
-    {Object.entries(groupedExcursions).map(([category, tours]) => (
+<!-- ШАПКА ТАБЛИЦЫ (скрыта на мобилках) -->
+<div class="hidden lg:grid grid-cols-[minmax(200px,_1fr)_auto_120px_120px_100px] gap-6 pt-4 pb-2 border-t border-gray-800 mb-6 font-bold text-[13px] text-gray-800 items-end">
+  <div class="pl-4">Название экскурсии</div>
+  <div class="w-[180px]"></div> <!-- Пустое место над кнопкой -->
+  <div class="text-center leading-tight">Стоимость<br>(взрослый)</div>
+  <div class="text-center leading-tight">Стоимость<br>(ребенок)</div>
+  <div class="text-center leading-tight">Возраст<br>ребенка</div>
+</div>
+
+  <!-- Выводим уже отсортированные категории -->
+  <div class="flex flex-col gap-8">
+    {sortedCategories.map(([category, tours]) => (
       <CategorySection title={category}>
-        {tours.map((tour) => (
-          <TourRow 
-            id={tour.id} 
-            title={tour.data.title} 
-            priceAdult={tour.data.priceAdult} 
-            badges={tour.data.badges} 
-            cover={tour.data.cover}
-          />
-        ))}
+        <div class="flex flex-col">
+          {tours.map((tour, index) => (
+            <TourRow 
+              id={tour.id} 
+              title={tour.data.title} 
+              subtitle={tour.data.subtitle}
+              priceAdult={tour.data.priceAdult} 
+              priceChild={tour.data.priceChild}
+              childAge={tour.data.childAge}
+              pricePrefix={tour.data.pricePrefix}
+              badges={tour.data.badges}
+              isEven={index % 2 !== 0} 
+            />
+          ))}
+        </div>
       </CategorySection>
     ))}
   </div>

@@ -1,16 +1,14 @@
 ---
 import { Image } from 'astro:assets';
-// Импортируем логотип. Убедись, что файл называется именно так и лежит в этой папке
 import logo from '../assets/images/bounty-logo.svg';
 ---
 <header class="bg-white shadow-sm sticky top-0 z-50">
-  <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+  <div class="w-full max-w-[1200px] mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
     <a href="/" class="block hover:opacity-80 transition">
-      <!-- h-12 задает высоту, ширина подстроится автоматически (w-auto) -->
-      <Image src={logo} alt="Bounty Tours" class="h-12 w-auto object-contain" loading="eager" />
+      <Image src={logo} alt="Bounty Tours" class="h-10 md:h-12 w-auto object-contain" loading="eager" />
     </a>
-    <a href="#contacts" class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-blue-700 transition">
-      Telegram
+    <a href="#contacts" class="bg-[#00d0b5] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-teal-400 transition">
+      Связаться
     </a>
   </div>
 </header>
