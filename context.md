@@ -18,7 +18,7 @@
         │   📄 bond.jpg
         │   📄 bounty-logo.svg
         │   📄 elephants.jpg
-        │   📄 hanuman.jpg
+        │   📄 hanuman.jpg 
         │   📄 phiphi.jpg
         │   📄 similan.jpg
     │   📄 BookingForm.astro
