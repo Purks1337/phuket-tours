@@ -4,8 +4,10 @@ import CategorySection from '../components/CategorySection.astro';
 import TourRow from '../components/TourRow.astro';
 import { getCollection } from 'astro:content';
 
+// Получаем все экскурсии из коллекции
 const allExcursions = await getCollection('excursions');
 
+// Группируем их по категориям
 const groupedExcursions = allExcursions.reduce((acc, tour) => {
   const category = tour.data.category;
   if (!acc[category]) {
@@ -15,13 +17,15 @@ const groupedExcursions = allExcursions.reduce((acc, tour) => {
   return acc;
 }, {} as Record<string, typeof allExcursions>);
 
-const categoryOrder =[
+// Задаем нужный порядок категорий
+const categoryOrder = [
   "🔥 ХИТЫ 🔥",
   "МОРСКИЕ",
   "НАЗЕМНЫЕ",
   "НЕОБЫЧНЫЕ"
 ];
 
+// Сортируем сгруппированные категории
 const sortedCategories = Object.entries(groupedExcursions).sort(([categoryA], [categoryB]) => {
   const indexA = categoryOrder.indexOf(categoryA);
   const indexB = categoryOrder.indexOf(categoryB);
@@ -30,48 +34,45 @@ const sortedCategories = Object.entries(groupedExcursions).sort(([categoryA], [c
 ---
 
 <Layout title="Bounty Tours | Экскурсии на Пхукете">
-  <div class="mb-14 flex flex-col items-center text-center mt-4">
-    <h1 class="text-5xl md:text-7xl font-black mb-8 text-black tracking-tight">
+  
+  <!-- Hero-секция: воздушная, без лишних контейнеров -->
+  <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-20 mt-10">
+    <h1 class="text-4xl md:text-6xl font-black mb-6 text-gray-900 tracking-tight leading-tight">
       Экскурсии на Пхукете
     </h1>
+    <p class="text-lg md:text-m text-gray-600 mb-10">
+      Бронируйте лучшие морские и наземные приключения без предоплаты за 5 минут
+    </p>
 
-    <!-- Блок ссылок на мессенджеры -->
-    <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 text-lg md:text-xl font-bold text-gray-900">
-      <span>Бронируйте в Telegram или Whatsapp</span>
+    <!-- Кнопки мессенджеров -->
+    <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+      <a href="https://t.me/+66952588444" target="_blank" rel="noopener noreferrer" class="bg-[#0088cc] hover:bg-[#007ab8] text-white py-4 px-8 rounded-xl font-bold flex items-center justify-center gap-3 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/20">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+        Telegram
+      </a>
       
-      <div class="flex items-center gap-3">
-        <!-- Кнопка Telegram -->
-        <a href="https://t.me/+66952588444" target="_blank" rel="noopener noreferrer" class="bg-[#0088cc] hover:bg-[#007ab8] text-white text-sm md:text-base py-2.5 px-5 rounded-full transition duration-300 shadow-sm flex items-center gap-2">
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
-          Telegram
-        </a>
-        
-        <!-- Кнопка WhatsApp -->
-        <a href="https://wa.me/66952588444" target="_blank" rel="noopener noreferrer" class="bg-[#25D366] hover:bg-[#20bd5a] text-white text-sm md:text-base py-2.5 px-5 rounded-full transition duration-300 shadow-sm flex items-center gap-2">
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.996 0A12 12 0 0 0 0 12a11.968 11.968 0 0 0 1.611 6.002L0 24l6.155-1.614A11.966 11.966 0 0 0 11.996 24C18.621 24 24 18.62 24 12c0-6.621-5.379-12-12.004-12zm6.758 17.21c-.287.808-1.666 1.543-2.317 1.63-.538.071-1.22.146-3.82-1.026-3.328-1.493-5.467-4.93-5.632-5.155-.164-.225-1.344-1.787-1.344-3.411 0-1.624.84-2.42 1.139-2.736.298-.316.646-.395.861-.395.215 0 .43.002.616.012.203.01.472-.08.736.56.275.666.896 2.18.975 2.338.08.158.132.343.032.553-.1.21-.151.342-.298.513-.146.171-.314.368-.445.513-.146.158-.303.333-.122.65.18.315.803 1.328 1.716 2.146 1.18.10.6 2.158 2.502.43.145.556.342.731.25.908-.092 1.077.29 1.164.5.342.544.757 1.054.896 1.054.14 0 .341-.053.473-.25.132-.198.537-.633.684-.85.146-.217.292-.18.528-.093.236.086 1.494.704 1.751.81.258.106.43.158.494.246.064.088.064.513-.223 1.321z"/></svg>
-          WhatsApp
-        </a>
-      </div>
+      <a href="https://wa.me/66952588444" target="_blank" rel="noopener noreferrer" class="bg-[#25D366] hover:bg-[#20bd5a] text-white py-4 px-8 rounded-xl font-bold flex items-center justify-center gap-3 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-green-500/20">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.996 0A12 12 0 0 0 0 12a11.968 11.968 0 0 0 1.611 6.002L0 24l6.155-1.614A11.966 11.966 0 0 0 11.996 24C18.621 24 24 18.62 24 12c0-6.621-5.379-12-12.004-12zm6.758 17.21c-.287.808-1.666 1.543-2.317 1.63-.538.071-1.22.146-3.82-1.026-3.328-1.493-5.467-4.93-5.632-5.155-.164-.225-1.344-1.787-1.344-3.411 0-1.624.84-2.42 1.139-2.736.298-.316.646-.395.861-.395.215 0 .43.002.616.012.203.01.472-.08.736.56.275.666.896 2.18.975 2.338.08.158.132.343.032.553-.1.21-.151.342-.298.513-.146.171-.314.368-.445.513-.146.158-.303.333-.122.65.18.315.803 1.328 1.716 2.146 1.18.10.6 2.158 2.502.43.145.556.342.731.25.908-.092 1.077.29 1.164.5.342.544.757 1.054.896 1.054.14 0 .341-.053.473-.25.132-.198.537-.633.684-.85.146-.217.292-.18.528-.093.236.086 1.494.704 1.751.81.258.106.43.158.494.246.064.088.064.513-.223 1.321z"/></svg>
+        WhatsApp
+      </a>
     </div>
-
   </div>
 
   <!-- ШАПКА ТАБЛИЦЫ (скрыта на мобилках) -->
+  <div class="hidden lg:grid grid-cols-[minmax(200px,_1fr)_auto_120px_120px_100px] gap-6 pt-4 pb-2 border-t border-gray-800 mb-6 font-bold text-[13px] text-gray-800 items-end">
+    <div class="pl-4">Название экскурсии</div>
+    <div class="w-[180px]"></div>
+    <div class="text-center leading-tight">Стоимость<br>(взрослый)</div>
+    <div class="text-center leading-tight">Стоимость<br>(ребенок)</div>
+    <div class="text-center leading-tight">Возраст<br>ребенка</div>
+  </div>
 
-<div class="hidden lg:grid grid-cols-[minmax(200px,_1fr)_auto_120px_120px_100px] gap-6 pt-4 pb-2 border-t border-gray-800 mb-6 font-bold text-[13px] text-gray-800 items-end">
-  <div class="pl-4">Название экскурсии</div>
-  <div class="w-[180px]"></div> <!-- Пустое место над кнопкой -->
-  <div class="text-center leading-tight">Стоимость<br>(взрослый)</div>
-  <div class="text-center leading-tight">Стоимость<br>(ребенок)</div>
-  <div class="text-center leading-tight">Возраст<br>ребенка</div>
-</div>
-
-  <!-- Выводим уже отсортированные категории -->
+  <!-- Список категорий -->
   <div class="flex flex-col gap-8">
     {sortedCategories.map(([category, tours]) => (
       <CategorySection title={category}>
-        <div class="flex flex-col">
-          {tours.map((tour, index) => (
+        <div class="flex flex-col gap-3">
+          {tours.map((tour) => (
             <TourRow 
               id={tour.id} 
               title={tour.data.title} 
@@ -81,7 +82,6 @@ const sortedCategories = Object.entries(groupedExcursions).sort(([categoryA], [c
               childAge={tour.data.childAge}
               pricePrefix={tour.data.pricePrefix}
               badges={tour.data.badges}
-              isEven={index % 2 !== 0} 
             />
           ))}
         </div>

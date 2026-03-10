@@ -8,49 +8,38 @@ interface Props {
   childAge?: string;
   pricePrefix?: string;
   badges?: string[];
-  isEven?: boolean;
 }
 
-const { id, title, subtitle, priceAdult, priceChild, childAge, pricePrefix = "", badges =[], isEven = false } = Astro.props;
-
-// Чередование фона (белый и очень светло-серый)
-const bgClass = isEven ? "bg-[#fafafa]" : "bg-white";
+const { id, title, subtitle, priceAdult, priceChild, childAge, pricePrefix = "", badges = [] } = Astro.props;
 ---
-<!-- CSS Grid сетка, которая идеально выравнивается с шапкой в index.astro -->
-<div class={`grid grid-cols-1 lg:grid-cols-[minmax(200px,_1fr)_auto_120px_120px_100px] gap-6 py-5 px-4 border-b border-gray-200 items-center transition-colors hover:bg-gray-50 ${bgClass}`}>
+<div class="group grid grid-cols-1 lg:grid-cols-[1fr_auto_120px_120px_100px] gap-6 py-5 px-5 border border-gray-100 bg-white rounded-2xl items-center transition-all duration-500 ease-out hover:shadow-md hover:border-teal-100 hover:-translate-y-0.5">
   
-  <!-- 1. Название и подзаголовок -->
   <div class="flex flex-col">
-    <h3 class="text-[17px] font-bold text-gray-700 leading-tight">{title}</h3>
+    <h3 class="text-[17px] font-bold text-gray-800 leading-tight group-hover:text-teal-600 transition-colors">{title}</h3>
     {subtitle && <p class="text-sm text-gray-500 mt-1">{subtitle}</p>}
   </div>
 
-  <!-- 2. Кнопка -->
-  <div class="w-full lg:w-[180px] mt-3 lg:mt-0">
-    <a href={`/excursions/${id}`} class="block w-full text-center bg-[#00e5c9] text-white font-bold text-[13px] px-4 py-2.5 rounded hover:bg-[#00cbb2] transition-colors shadow-sm">
+  <div class="w-full lg:w-[180px]">
+    <a href={`/excursions/${id}`} class="block w-full text-center bg-gray-900 group-hover:bg-[#00d0b5] text-white font-bold text-[13px] px-4 py-3 rounded-xl transition-all duration-300">
       Читать описание
     </a>
   </div>
 
-  <!-- 3. Цена Взрослый (скрыто на мобильных, так как это табличный вид) -->
   <div class="hidden lg:block text-center font-bold text-gray-600">
-    {pricePrefix} {priceAdult} бат
+    {pricePrefix} {priceAdult} <span class="text-[10px] font-normal opacity-70">бат</span>
   </div>
   
-  <!-- 4. Цена Ребенок -->
   <div class="hidden lg:block text-center font-bold text-gray-600">
-    {priceChild ? `${pricePrefix} ${priceChild} бат` : ''}
+    {priceChild ? `${pricePrefix} ${priceChild} ` : ''} <span class="text-[10px] font-normal opacity-70">{priceChild ? 'бат' : ''}</span>
   </div>
 
-  <!-- 5. Возраст -->
   <div class="hidden lg:block text-center font-bold text-gray-600">
-    {childAge || ''}
+    {childAge || '-'}
   </div>
 
-  <!-- Мобильное отображение цен (только для смартфонов) -->
-  <div class="grid grid-cols-3 gap-2 lg:hidden mt-4 text-xs text-center font-bold text-gray-600 bg-gray-100 p-2 rounded">
-     <div>Взрослый:<br/><span class="text-gray-800 text-sm">{pricePrefix} {priceAdult} ฿</span></div>
-     <div>Ребенок:<br/><span class="text-gray-800 text-sm">{priceChild ? `${pricePrefix} ${priceChild} ฿` : '-'}</span></div>
-     <div>Возраст:<br/><span class="text-gray-800 text-sm">{childAge || '-'}</span></div>
+  <div class="grid grid-cols-3 gap-2 lg:hidden mt-2 text-xs text-center font-bold text-gray-600 bg-slate-50 p-3 rounded-xl">
+     <div>Взрослый:<br/><span class="text-gray-900 text-sm">{pricePrefix} {priceAdult}</span></div>
+     <div>Ребенок:<br/><span class="text-gray-900 text-sm">{priceChild ? `${pricePrefix} ${priceChild}` : '-'}</span></div>
+     <div>Возраст:<br/><span class="text-gray-900 text-sm">{childAge || '-'}</span></div>
   </div>
 </div>

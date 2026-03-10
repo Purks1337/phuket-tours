@@ -2,13 +2,14 @@
 import { Image } from 'astro:assets';
 import logo from '../assets/images/bounty-logo.svg';
 ---
-<header class="bg-white shadow-sm sticky top-0 z-50">
-  <div class="w-full max-w-[1200px] mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
-    <a href="/" class="block hover:opacity-80 transition">
-      <Image src={logo} alt="Bounty Tours" class="h-10 md:h-12 w-auto object-contain" loading="eager" />
+<header class="fixed top-4 left-4 right-4 z-50">
+  <div class="max-w-[1200px] mx-auto bg-white/70 backdrop-blur-lg border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.04)] rounded-2xl px-5 py-3 flex justify-between items-center">
+    <a href="/" class="block hover:opacity-80 transition-opacity">
+      <Image src={logo} alt="Bounty Tours" class="h-8 w-auto object-contain" loading="eager" />
     </a>
-    <a href="https://t.me/+66952588444" target="_blank" rel="noopener noreferrer" class="bg-[#00d0b5] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-teal-400 transition">
+    <a href="https://t.me/+66952588444" target="_blank" rel="noopener noreferrer" class="bg-[#00d0b5] text-white px-5 py-2 rounded-full text-sm font-bold shadow-md shadow-teal-500/10 hover:bg-teal-400 transition-all active:scale-95">
       Связаться
     </a>
   </div>
 </header>
+<div class="h-20"></div>

@@ -16,19 +16,17 @@ const { Content } = await render(post);
 ---
 
 <Layout title={`${post.data.title} | Bounty Tours`}>
-  <div class="mb-6">
+  <div class="mb-8">
     <a
       href="/"
-      class="text-blue-600 text-sm font-bold hover:underline inline-flex items-center gap-1 transition"
+      class="text-gray-500 hover:text-teal-600 font-bold flex items-center gap-2 transition-colors duration-300"
     >
-      <span class="text-lg leading-none">←</span> Назад в каталог
+      <span class="text-xl">←</span> Назад в каталог
     </a>
   </div>
 
   <!-- Баннер -->
-  <div
-    class="rounded-2xl overflow-hidden mb-8 h-64 md:h-96 w-full relative shadow-lg group"
-  >
+  <div class="rounded-3xl overflow-hidden mb-10 h-64 md:h-[400px] w-full relative shadow-lg group">
     {
       post.data.cover && (
         <Image
@@ -41,50 +39,35 @@ const { Content } = await render(post);
         />
       )
     }
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
-    >
-    </div>
-    <div class="absolute bottom-0 left-0 p-6 md:p-10 text-white w-full">
+    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 p-8 md:p-12 text-white w-full">
       {
         post.data.badges && post.data.badges.length > 0 && (
-          <div class="flex flex-wrap gap-2 mb-3">
+          <div class="flex flex-wrap gap-2 mb-4">
             {post.data.badges.map((badge) => (
-              <span class="bg-blue-600 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+              <span class="bg-[#00d0b5] text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
                 {badge}
               </span>
             ))}
           </div>
         )
       }
-      <h1
-        class="text-3xl md:text-5xl font-black uppercase tracking-wider drop-shadow-lg leading-tight"
-      >
+      <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tight drop-shadow-md leading-tight">
         {post.data.title}
       </h1>
     </div>
   </div>
 
-  <div
-    class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10 mb-10"
-  >
+  <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-12 mb-10">
     <!-- Блок с ценой -->
-    <div
-      class="bg-blue-50/50 rounded-xl p-4 md:p-6 mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border border-blue-100"
-    >
+    <div class="bg-teal-50/50 rounded-2xl p-6 md:p-8 mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-teal-100">
       <div>
-        <span
-          class="block text-[11px] text-gray-500 uppercase tracking-wider font-bold mb-1"
-          >Стоимость (Взрослый)</span
-        >
-        <span class="text-4xl font-black text-gray-900"
-          >{post.data.pricePrefix || ""} {post.data.priceAdult} ฿</span
-        >
+        <span class="block text-[11px] text-teal-800 uppercase tracking-widest font-bold mb-1">Стоимость (Взрослый)</span>
+        <span class="text-4xl md:text-5xl font-black text-gray-900">
+          {post.data.pricePrefix || ""} {post.data.priceAdult} <span class="text-xl font-normal text-gray-500">бат</span>
+        </span>
       </div>
-      <a
-        href="#booking"
-        class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition w-full md:w-auto text-center shadow-lg shadow-blue-200"
-      >
+      <a href="#booking" class="bg-[#00d0b5] text-white px-8 py-4 rounded-xl font-bold hover:bg-teal-400 hover:scale-105 active:scale-95 transition-all w-full md:w-auto text-center shadow-lg shadow-teal-500/20">
         Забронировать
       </a>
     </div>
@@ -94,16 +77,13 @@ const { Content } = await render(post);
       <Content />
     </div>
 
-    <!-- Контакты для бронирования (ВМЕСТО ФОРМЫ) -->
-    <div id="booking" class="mt-12 pt-10 border-t border-gray-100">
-      <h2
-        class="text-2xl font-black uppercase tracking-wider mb-2 text-center md:text-left text-gray-900"
-      >
-        Бронирование
+    <!-- Контакты для бронирования -->
+    <div id="booking" class="mt-16 pt-10 border-t border-gray-100">
+      <h2 class="text-2xl font-black uppercase tracking-tight mb-4 text-center md:text-left text-gray-900">
+        Готовы к приключениям?
       </h2>
       <p class="text-gray-500 mb-8 text-center md:text-left">
-        Для бронирования экскурсии свяжитесь с нами в любом удобном мессенджере.
-        Мы ответим в течение 5 минут.
+        Напишите нам в мессенджеры, и мы подберем удобное время для вашей поездки.
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4">
@@ -112,17 +92,10 @@ const { Content } = await render(post);
           href="https://t.me/+66952588444"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex-1 bg-[#0088cc] hover:bg-[#007ab8] text-white text-center font-bold py-4 px-6 rounded-xl transition duration-300 shadow-md flex items-center justify-center gap-3"
+          class="flex-1 bg-[#0088cc] hover:bg-[#007ab8] text-white text-center font-bold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-md flex items-center justify-center gap-3"
         >
-          <svg
-            class="w-6 h-6 fill-current"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            ><path
-              d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"
-            ></path></svg
-          >
-          Написать в Telegram
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+          Telegram
         </a>
 
         <!-- Кнопка WhatsApp -->
@@ -130,17 +103,10 @@ const { Content } = await render(post);
           href="https://wa.me/66952588444"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white text-center font-bold py-4 px-6 rounded-xl transition duration-300 shadow-md flex items-center justify-center gap-3"
+          class="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white text-center font-bold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-md flex items-center justify-center gap-3"
         >
-          <svg
-            class="w-6 h-6 fill-current"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            ><path
-              d="M11.996 0A12 12 0 0 0 0 12a11.968 11.968 0 0 0 1.611 6.002L0 24l6.155-1.614A11.966 11.966 0 0 0 11.996 24C18.621 24 24 18.62 24 12c0-6.621-5.379-12-12.004-12zm6.758 17.21c-.287.808-1.666 1.543-2.317 1.63-.538.071-1.22.146-3.82-1.026-3.328-1.493-5.467-4.93-5.632-5.155-.164-.225-1.344-1.787-1.344-3.411 0-1.624.84-2.42 1.139-2.736.298-.316.646-.395.861-.395.215 0 .43.002.616.012.203.01.472-.08.736.56.275.666.896 2.18.975 2.338.08.158.132.343.032.553-.1.21-.151.342-.298.513-.146.171-.314.368-.445.513-.146.158-.303.333-.122.65.18.315.803 1.328 1.716 2.146 1.18.10.6 2.158 2.502.43.145.556.342.731.25.908-.092 1.077.29 1.164.5.342.544.757 1.054.896 1.054.14 0 .341-.053.473-.25.132-.198.537-.633.684-.85.146-.217.292-.18.528-.093.236.086 1.494.704 1.751.81.258.106.43.158.494.246.064.088.064.513-.223 1.321z"
-            ></path></svg
-          >
-          Написать в WhatsApp
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.996 0A12 12 0 0 0 0 12a11.968 11.968 0 0 0 1.611 6.002L0 24l6.155-1.614A11.966 11.966 0 0 0 11.996 24C18.621 24 24 18.62 24 12c0-6.621-5.379-12-12.004-12zm6.758 17.21c-.287.808-1.666 1.543-2.317 1.63-.538.071-1.22.146-3.82-1.026-3.328-1.493-5.467-4.93-5.632-5.155-.164-.225-1.344-1.787-1.344-3.411 0-1.624.84-2.42 1.139-2.736.298-.316.646-.395.861-.395.215 0 .43.002.616.012.203.01.472-.08.736.56.275.666.896 2.18.975 2.338.08.158.132.343.032.553-.1.21-.151.342-.298.513-.146.171-.314.368-.445.513-.146.158-.303.333-.122.65.18.315.803 1.328 1.716 2.146 1.18.10.6 2.158 2.502.43.145.556.342.731.25.908-.092 1.077.29 1.164.5.342.544.757 1.054.896 1.054.14 0 .341-.053.473-.25.132-.198.537-.633.684-.85.146-.217.292-.18.528-.093.236.086 1.494.704 1.751.81.258.106.43.158.494.246.064.088.064.513-.223 1.321z"/></svg>
+          WhatsApp
         </a>
       </div>
     </div>
@@ -148,46 +114,16 @@ const { Content } = await render(post);
 </Layout>
 
 <style is:global>
-  .markdown-content p {
-    margin-bottom: 1.5rem;
+  .markdown-content p { margin-bottom: 1.5rem; }
+  .markdown-content h2 { 
+    font-size: 1.5rem; font-weight: 900; margin-top: 2.5rem; margin-bottom: 1rem; 
+    text-transform: uppercase; color: #111827; letter-spacing: 0.05em; 
   }
-  .markdown-content h2 {
-    font-size: 1.5rem;
-    font-weight: 900;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    color: #111827;
-    letter-spacing: 0.05em;
+  .markdown-content h3 { font-size: 1.25rem; font-weight: 800; margin-top: 2rem; margin-bottom: 0.75rem; color: #1f2937; }
+  .markdown-content ul { list-style-type: none; padding-left: 0; margin-bottom: 1.5rem; }
+  .markdown-content li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+  .markdown-content li::before { 
+    content: "•"; color: #00d0b5; font-weight: bold; position: absolute; left: 0; font-size: 1.2em; line-height: 1; 
   }
-  .markdown-content h3 {
-    font-size: 1.25rem;
-    font-weight: 800;
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-    color: #1f2937;
-  }
-  .markdown-content ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin-bottom: 1.5rem;
-  }
-  .markdown-content li {
-    margin-bottom: 0.75rem;
-    padding-left: 1.5rem;
-    position: relative;
-  }
-  .markdown-content li::before {
-    content: "•";
-    color: #2563eb;
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    font-size: 1.2em;
-    line-height: 1;
-  }
-  .markdown-content strong {
-    color: #111827;
-    font-weight: 800;
-  }
+  .markdown-content strong { color: #111827; font-weight: 800; }
 </style>
