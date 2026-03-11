@@ -15,7 +15,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout title={`${post.data.title} | Bounty Tours`}>
+<Layout title={`${post.data.title} | Bounty Tours`} description={`Бронируйте экскурсию «${post.data.title}» на Пхукете. ${post.data.subtitle || ''} Цена: ${post.data.priceAdult} бат. Забронируйте сейчас!`}>
   <div class="mb-8">
     <a
       href="/"

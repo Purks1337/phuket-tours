@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://purks1337-phuket-tours-d790.twc1.net/sitemap-index.xml
