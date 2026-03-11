@@ -18,7 +18,7 @@
         │   📄 bond.jpg
         │   📄 bounty-logo.svg
         │   📄 elephants.jpg
-        │   📄 hanuman.jpg 
+        │   📄 hanuman.jpg
         │   📄 phiphi.jpg
         │   📄 similan.jpg
     │   📄 BookingForm.astro
@@ -473,11 +473,12 @@ interface Props {
 
 const { title } = Astro.props;
 ---
-<section class="mb-4">
-  <div class="bg-[#f2fcfa] border-y border-[#d9f2ef] py-4 px-4 mb-0">
-    <h2 class="text-xl font-black italic uppercase tracking-wider text-gray-800">{title}</h2>
+<section class="mb-10">
+  <div class="flex items-center gap-3 mb-6">
+     <div class="h-7 w-1.5 bg-[#E6C06D] rounded-full"></div>
+     <h2 class="text-2xl font-black uppercase tracking-tight text-gray-900">{title}</h2>
   </div>
-  <div class="flex flex-col">
+  <div class="flex flex-col gap-4">
     <slot />
   </div>
 </section>
@@ -491,17 +492,42 @@ const { title } = Astro.props;
 ```astro
 ---
 ---
-<footer id="contacts" class="bg-[#0b172a] text-white mt-12 py-12">
-  <div class="w-full max-w-[1200px] mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-    <div class="text-center md:text-left">
-      <h3 class="text-2xl font-black mb-2 uppercase tracking-wider">Bounty Tours</h3>
-      <p class="text-slate-400 text-sm">Ваш надежный гид на Пхукете</p>
+<footer class="bg-white border-t border-gray-100 mt-20 py-16">
+  <div class="max-w-[1200px] mx-auto px-6 grid md:grid-cols-3 gap-12 text-center md:text-left">
+    
+    <!-- Колонка 1: Бренд -->
+    <div class="flex flex-col items-center md:items-start">
+      <h3 class="text-xl font-black uppercase tracking-widest text-gray-900 mb-4">Bounty Tours</h3>
+      <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
+        Организуем лучшие приключения на Пхукете с 2020 года. Надежно, безопасно и с любовью к острову.
+      </p>
     </div>
-    <div class="text-sm text-slate-300 text-center md:text-right">
-      <p class="font-bold text-white mb-2 text-base">Контакты для связи:</p>
-      <p class="mb-1">Telegram: <a href="https://t.me/+66952588444" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">+66 95 258 8444</a></p>
-      <p>WhatsApp: <a href="https://wa.me/66952588444" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">+66 95 258 8444</a></p>
+
+    <!-- Колонка 2: Контакты -->
+    <div class="flex flex-col items-center md:items-start">
+      <h4 class="font-bold text-gray-900 mb-4 uppercase text-sm tracking-wider">Контакты</h4>
+      <div class="flex flex-col gap-3 text-sm">
+        <a href="https://t.me/+66952588444" class="text-gray-600 hover:text-teal-600 transition flex items-center gap-2">
+          <span class="text-teal-500 font-bold">Telegram:</span> +66 95 258 8444
+        </a>
+        <a href="https://wa.me/66952588444" class="text-gray-600 hover:text-teal-600 transition flex items-center gap-2">
+          <span class="text-teal-500 font-bold">WhatsApp:</span> +66 95 258 8444
+        </a>
+      </div>
     </div>
+
+    <!-- Колонка 3: Доп инфо -->
+    <div class="flex flex-col items-center md:items-start">
+      <h4 class="font-bold text-gray-900 mb-4 uppercase text-sm tracking-wider">Информация</h4>
+      <p class="text-gray-500 text-sm">
+        Работаем ежедневно<br/>
+        с 08:00 до 22:00
+      </p>
+    </div>
+  </div>
+  
+  <div class="max-w-[1200px] mx-auto px-6 mt-12 pt-8 border-t border-gray-50 text-center text-xs text-gray-400">
+    © 2026 Bounty Tours. Все права защищены.
   </div>
 </footer>
 ```
@@ -516,16 +542,17 @@ const { title } = Astro.props;
 import { Image } from 'astro:assets';
 import logo from '../assets/images/bounty-logo.svg';
 ---
-<header class="bg-white shadow-sm sticky top-0 z-50">
-  <div class="w-full max-w-[1200px] mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
-    <a href="/" class="block hover:opacity-80 transition">
-      <Image src={logo} alt="Bounty Tours" class="h-10 md:h-12 w-auto object-contain" loading="eager" />
+<header class="fixed top-4 left-4 right-4 z-50">
+  <div class="max-w-[1200px] mx-auto bg-white/70 backdrop-blur-lg border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.04)] rounded-2xl px-5 py-3 flex justify-between items-center">
+    <a href="/" class="block hover:opacity-80 transition-opacity">
+      <Image src={logo} alt="Bounty Tours" class="h-8 w-auto object-contain" loading="eager" />
     </a>
-    <a href="https://t.me/+66952588444" target="_blank" rel="noopener noreferrer" class="bg-[#00d0b5] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-teal-400 transition">
+    <a href="https://t.me/+66952588444" target="_blank" rel="noopener noreferrer" class="bg-[#E6C06D] text-gray-900 px-5 py-2 rounded-full text-sm font-bold shadow-md shadow-yellow-500/10 hover:bg-[#F5DE8B] transition-all active:scale-95">
       Связаться
     </a>
   </div>
 </header>
+<div class="h-20"></div>
 ```
 
 
@@ -544,50 +571,40 @@ interface Props {
   childAge?: string;
   pricePrefix?: string;
   badges?: string[];
-  isEven?: boolean;
 }
 
-const { id, title, subtitle, priceAdult, priceChild, childAge, pricePrefix = "", badges =[], isEven = false } = Astro.props;
-
-// Чередование фона (белый и очень светло-серый)
-const bgClass = isEven ? "bg-[#fafafa]" : "bg-white";
+const { id, title, subtitle, priceAdult, priceChild, childAge, pricePrefix = "", badges = [] } = Astro.props;
 ---
-<!-- CSS Grid сетка, которая идеально выравнивается с шапкой в index.astro -->
-<div class={`grid grid-cols-1 lg:grid-cols-[minmax(200px,_1fr)_auto_120px_120px_100px] gap-6 py-5 px-4 border-b border-gray-200 items-center transition-colors hover:bg-gray-50 ${bgClass}`}>
+<div class="group grid grid-cols-1 lg:grid-cols-[1fr_auto_120px_120px_100px] gap-6 py-5 px-5 border border-gray-100 bg-white rounded-2xl items-center transition-all duration-300 hover:shadow-md hover:border-[#E6C06D]/30 hover:-translate-y-0.5">
   
-  <!-- 1. Название и подзаголовок -->
   <div class="flex flex-col">
-    <h3 class="text-[17px] font-bold text-gray-700 leading-tight">{title}</h3>
+    <h3 class="text-[17px] font-bold text-gray-800 leading-tight group-hover:text-gray-900 transition-colors">{title}</h3>
     {subtitle && <p class="text-sm text-gray-500 mt-1">{subtitle}</p>}
   </div>
 
-  <!-- 2. Кнопка -->
-  <div class="w-full lg:w-[180px] mt-3 lg:mt-0">
-    <a href={`/excursions/${id}`} class="block w-full text-center bg-[#00e5c9] text-white font-bold text-[13px] px-4 py-2.5 rounded hover:bg-[#00cbb2] transition-colors shadow-sm">
+  <div class="w-full lg:w-[180px]">
+    <!-- Кнопка: фон черный, при наведении золотой, текст черный -->
+    <a href={`/excursions/${id}`} class="block w-full text-center bg-gray-900 group-hover:bg-[#E6C06D] text-white group-hover:text-gray-900 font-bold text-[13px] px-4 py-3 rounded-xl transition-all duration-300">
       Читать описание
     </a>
   </div>
 
-  <!-- 3. Цена Взрослый (скрыто на мобильных, так как это табличный вид) -->
   <div class="hidden lg:block text-center font-bold text-gray-600">
-    {pricePrefix} {priceAdult} бат
+    {pricePrefix} {priceAdult} <span class="text-[10px] font-normal opacity-70">бат</span>
   </div>
   
-  <!-- 4. Цена Ребенок -->
   <div class="hidden lg:block text-center font-bold text-gray-600">
-    {priceChild ? `${pricePrefix} ${priceChild} бат` : ''}
+    {priceChild ? `${pricePrefix} ${priceChild} ` : ''} <span class="text-[10px] font-normal opacity-70">{priceChild ? 'бат' : ''}</span>
   </div>
 
-  <!-- 5. Возраст -->
   <div class="hidden lg:block text-center font-bold text-gray-600">
-    {childAge || ''}
+    {childAge || '-'}
   </div>
 
-  <!-- Мобильное отображение цен (только для смартфонов) -->
-  <div class="grid grid-cols-3 gap-2 lg:hidden mt-4 text-xs text-center font-bold text-gray-600 bg-gray-100 p-2 rounded">
-     <div>Взрослый:<br/><span class="text-gray-800 text-sm">{pricePrefix} {priceAdult} ฿</span></div>
-     <div>Ребенок:<br/><span class="text-gray-800 text-sm">{priceChild ? `${pricePrefix} ${priceChild} ฿` : '-'}</span></div>
-     <div>Возраст:<br/><span class="text-gray-800 text-sm">{childAge || '-'}</span></div>
+  <div class="grid grid-cols-3 gap-2 lg:hidden mt-2 text-xs text-center font-bold text-gray-600 bg-slate-50 p-3 rounded-xl">
+     <div>Взрослый:<br/><span class="text-gray-900 text-sm">{pricePrefix} {priceAdult}</span></div>
+     <div>Ребенок:<br/><span class="text-gray-900 text-sm">{priceChild ? `${pricePrefix} ${priceChild}` : '-'}</span></div>
+     <div>Возраст:<br/><span class="text-gray-900 text-sm">{childAge || '-'}</span></div>
   </div>
 </div>
 ```
@@ -611,17 +628,15 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-[#f7f7f7] text-gray-900 font-sans flex flex-col min-h-screen">
+	<body class="bg-slate-50 text-gray-900 font-sans flex flex-col min-h-screen selection:bg-teal-200">
 		<Header />
-		<!-- Главный контейнер: резиновый (w-full), макс. ширина 1200px, центрирование (mx-auto), адаптивные паддинги -->
 		<main class="flex-grow w-full max-w-[1200px] mx-auto px-4 md:px-8 py-8 md:py-12">
 			<slot />
 		</main>
@@ -642,8 +657,10 @@ import CategorySection from '../components/CategorySection.astro';
 import TourRow from '../components/TourRow.astro';
 import { getCollection } from 'astro:content';
 
+// Получаем все экскурсии из коллекции
 const allExcursions = await getCollection('excursions');
 
+// Группируем их по категориям
 const groupedExcursions = allExcursions.reduce((acc, tour) => {
   const category = tour.data.category;
   if (!acc[category]) {
@@ -653,13 +670,15 @@ const groupedExcursions = allExcursions.reduce((acc, tour) => {
   return acc;
 }, {} as Record<string, typeof allExcursions>);
 
-const categoryOrder =[
+// Задаем нужный порядок категорий
+const categoryOrder = [
   "🔥 ХИТЫ 🔥",
   "МОРСКИЕ",
   "НАЗЕМНЫЕ",
   "НЕОБЫЧНЫЕ"
 ];
 
+// Сортируем сгруппированные категории
 const sortedCategories = Object.entries(groupedExcursions).sort(([categoryA], [categoryB]) => {
   const indexA = categoryOrder.indexOf(categoryA);
   const indexB = categoryOrder.indexOf(categoryB);
@@ -668,48 +687,45 @@ const sortedCategories = Object.entries(groupedExcursions).sort(([categoryA], [c
 ---
 
 <Layout title="Bounty Tours | Экскурсии на Пхукете">
-  <div class="mb-14 flex flex-col items-center text-center mt-4">
-    <h1 class="text-5xl md:text-7xl font-black mb-8 text-black tracking-tight">
+  
+  <!-- Hero-секция: воздушная, без лишних контейнеров -->
+  <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-20 mt-10">
+    <h1 class="text-4xl md:text-6xl font-black mb-6 text-gray-900 tracking-tight leading-tight">
       Экскурсии на Пхукете
     </h1>
+    <p class="text-lg md:text-m text-gray-600 mb-10">
+      Бронируйте лучшие морские и наземные приключения без предоплаты за 5 минут
+    </p>
 
-    <!-- Блок ссылок на мессенджеры -->
-    <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 text-lg md:text-xl font-bold text-gray-900">
-      <span>Бронируйте в Telegram или Whatsapp</span>
+    <!-- Кнопки мессенджеров -->
+    <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+      <a href="https://t.me/+66952588444" target="_blank" rel="noopener noreferrer" class="bg-[#0088cc] hover:bg-[#007ab8] text-white py-4 px-8 rounded-xl font-bold flex items-center justify-center gap-3 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/20">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+        Telegram
+      </a>
       
-      <div class="flex items-center gap-3">
-        <!-- Кнопка Telegram -->
-        <a href="https://t.me/+66952588444" target="_blank" rel="noopener noreferrer" class="bg-[#0088cc] hover:bg-[#007ab8] text-white text-sm md:text-base py-2.5 px-5 rounded-full transition duration-300 shadow-sm flex items-center gap-2">
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
-          Telegram
-        </a>
-        
-        <!-- Кнопка WhatsApp -->
-        <a href="https://wa.me/66952588444" target="_blank" rel="noopener noreferrer" class="bg-[#25D366] hover:bg-[#20bd5a] text-white text-sm md:text-base py-2.5 px-5 rounded-full transition duration-300 shadow-sm flex items-center gap-2">
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.996 0A12 12 0 0 0 0 12a11.968 11.968 0 0 0 1.611 6.002L0 24l6.155-1.614A11.966 11.966 0 0 0 11.996 24C18.621 24 24 18.62 24 12c0-6.621-5.379-12-12.004-12zm6.758 17.21c-.287.808-1.666 1.543-2.317 1.63-.538.071-1.22.146-3.82-1.026-3.328-1.493-5.467-4.93-5.632-5.155-.164-.225-1.344-1.787-1.344-3.411 0-1.624.84-2.42 1.139-2.736.298-.316.646-.395.861-.395.215 0 .43.002.616.012.203.01.472-.08.736.56.275.666.896 2.18.975 2.338.08.158.132.343.032.553-.1.21-.151.342-.298.513-.146.171-.314.368-.445.513-.146.158-.303.333-.122.65.18.315.803 1.328 1.716 2.146 1.18.10.6 2.158 2.502.43.145.556.342.731.25.908-.092 1.077.29 1.164.5.342.544.757 1.054.896 1.054.14 0 .341-.053.473-.25.132-.198.537-.633.684-.85.146-.217.292-.18.528-.093.236.086 1.494.704 1.751.81.258.106.43.158.494.246.064.088.064.513-.223 1.321z"/></svg>
-          WhatsApp
-        </a>
-      </div>
+      <a href="https://wa.me/66952588444" target="_blank" rel="noopener noreferrer" class="bg-[#25D366] hover:bg-[#20bd5a] text-white py-4 px-8 rounded-xl font-bold flex items-center justify-center gap-3 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-green-500/20">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.996 0A12 12 0 0 0 0 12a11.968 11.968 0 0 0 1.611 6.002L0 24l6.155-1.614A11.966 11.966 0 0 0 11.996 24C18.621 24 24 18.62 24 12c0-6.621-5.379-12-12.004-12zm6.758 17.21c-.287.808-1.666 1.543-2.317 1.63-.538.071-1.22.146-3.82-1.026-3.328-1.493-5.467-4.93-5.632-5.155-.164-.225-1.344-1.787-1.344-3.411 0-1.624.84-2.42 1.139-2.736.298-.316.646-.395.861-.395.215 0 .43.002.616.012.203.01.472-.08.736.56.275.666.896 2.18.975 2.338.08.158.132.343.032.553-.1.21-.151.342-.298.513-.146.171-.314.368-.445.513-.146.158-.303.333-.122.65.18.315.803 1.328 1.716 2.146 1.18.10.6 2.158 2.502.43.145.556.342.731.25.908-.092 1.077.29 1.164.5.342.544.757 1.054.896 1.054.14 0 .341-.053.473-.25.132-.198.537-.633.684-.85.146-.217.292-.18.528-.093.236.086 1.494.704 1.751.81.258.106.43.158.494.246.064.088.064.513-.223 1.321z"/></svg>
+        WhatsApp
+      </a>
     </div>
-
   </div>
 
   <!-- ШАПКА ТАБЛИЦЫ (скрыта на мобилках) -->
+  <div class="hidden lg:grid grid-cols-[minmax(200px,_1fr)_auto_120px_120px_100px] gap-6 pt-4 pb-2 border-t border-gray-800 mb-6 font-bold text-[13px] text-gray-800 items-end">
+    <div class="pl-4">Название экскурсии</div>
+    <div class="w-[180px]"></div>
+    <div class="text-center leading-tight">Стоимость<br>(взрослый)</div>
+    <div class="text-center leading-tight">Стоимость<br>(ребенок)</div>
+    <div class="text-center leading-tight">Возраст<br>ребенка</div>
+  </div>
 
-<div class="hidden lg:grid grid-cols-[minmax(200px,_1fr)_auto_120px_120px_100px] gap-6 pt-4 pb-2 border-t border-gray-800 mb-6 font-bold text-[13px] text-gray-800 items-end">
-  <div class="pl-4">Название экскурсии</div>
-  <div class="w-[180px]"></div> <!-- Пустое место над кнопкой -->
-  <div class="text-center leading-tight">Стоимость<br>(взрослый)</div>
-  <div class="text-center leading-tight">Стоимость<br>(ребенок)</div>
-  <div class="text-center leading-tight">Возраст<br>ребенка</div>
-</div>
-
-  <!-- Выводим уже отсортированные категории -->
+  <!-- Список категорий -->
   <div class="flex flex-col gap-8">
     {sortedCategories.map(([category, tours]) => (
       <CategorySection title={category}>
-        <div class="flex flex-col">
-          {tours.map((tour, index) => (
+        <div class="flex flex-col gap-3">
+          {tours.map((tour) => (
             <TourRow 
               id={tour.id} 
               title={tour.data.title} 
@@ -719,7 +735,6 @@ const sortedCategories = Object.entries(groupedExcursions).sort(([categoryA], [c
               childAge={tour.data.childAge}
               pricePrefix={tour.data.pricePrefix}
               badges={tour.data.badges}
-              isEven={index % 2 !== 0} 
             />
           ))}
         </div>
@@ -753,19 +768,17 @@ const { Content } = await render(post);
 ---
 
 <Layout title={`${post.data.title} | Bounty Tours`}>
-  <div class="mb-6">
+  <div class="mb-8">
     <a
       href="/"
-      class="text-blue-600 text-sm font-bold hover:underline inline-flex items-center gap-1 transition"
+      class="text-gray-500 hover:text-[#E6C06D] font-bold flex items-center gap-2 transition-colors duration-300"
     >
-      <span class="text-lg leading-none">←</span> Назад в каталог
+      <span class="text-xl">←</span> Назад в каталог
     </a>
   </div>
 
   <!-- Баннер -->
-  <div
-    class="rounded-2xl overflow-hidden mb-8 h-64 md:h-96 w-full relative shadow-lg group"
-  >
+  <div class="rounded-3xl overflow-hidden mb-10 h-64 md:h-[400px] w-full relative shadow-lg group">
     {
       post.data.cover && (
         <Image
@@ -778,50 +791,35 @@ const { Content } = await render(post);
         />
       )
     }
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
-    >
-    </div>
-    <div class="absolute bottom-0 left-0 p-6 md:p-10 text-white w-full">
+    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 p-8 md:p-12 text-white w-full">
       {
         post.data.badges && post.data.badges.length > 0 && (
-          <div class="flex flex-wrap gap-2 mb-3">
+          <div class="flex flex-wrap gap-2 mb-4">
             {post.data.badges.map((badge) => (
-              <span class="bg-blue-600 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+              <span class="bg-[#E6C06D] text-gray-900 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
                 {badge}
               </span>
             ))}
           </div>
         )
       }
-      <h1
-        class="text-3xl md:text-5xl font-black uppercase tracking-wider drop-shadow-lg leading-tight"
-      >
+      <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tight drop-shadow-md leading-tight">
         {post.data.title}
       </h1>
     </div>
   </div>
 
-  <div
-    class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10 mb-10"
-  >
+  <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-12 mb-10">
     <!-- Блок с ценой -->
-    <div
-      class="bg-blue-50/50 rounded-xl p-4 md:p-6 mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border border-blue-100"
-    >
+    <div class="bg-[#fdf6e3] rounded-2xl p-6 md:p-8 mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-[#E6C06D]/30">
       <div>
-        <span
-          class="block text-[11px] text-gray-500 uppercase tracking-wider font-bold mb-1"
-          >Стоимость (Взрослый)</span
-        >
-        <span class="text-4xl font-black text-gray-900"
-          >{post.data.pricePrefix || ""} {post.data.priceAdult} ฿</span
-        >
+        <span class="block text-[11px] text-gray-700 uppercase tracking-widest font-bold mb-1">Стоимость (Взрослый)</span>
+        <span class="text-4xl md:text-5xl font-black text-gray-900">
+          {post.data.pricePrefix || ""} {post.data.priceAdult} <span class="text-xl font-normal text-gray-500">бат</span>
+        </span>
       </div>
-      <a
-        href="#booking"
-        class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition w-full md:w-auto text-center shadow-lg shadow-blue-200"
-      >
+      <a href="#booking" class="bg-[#E6C06D] text-gray-900 px-8 py-4 rounded-xl font-bold hover:bg-[#F5DE8B] hover:scale-105 active:scale-95 transition-all w-full md:w-auto text-center shadow-lg shadow-yellow-500/20">
         Забронировать
       </a>
     </div>
@@ -831,16 +829,13 @@ const { Content } = await render(post);
       <Content />
     </div>
 
-    <!-- Контакты для бронирования (ВМЕСТО ФОРМЫ) -->
-    <div id="booking" class="mt-12 pt-10 border-t border-gray-100">
-      <h2
-        class="text-2xl font-black uppercase tracking-wider mb-2 text-center md:text-left text-gray-900"
-      >
-        Бронирование
+    <!-- Контакты для бронирования -->
+    <div id="booking" class="mt-16 pt-10 border-t border-gray-100">
+      <h2 class="text-2xl font-black uppercase tracking-tight mb-4 text-center md:text-left text-gray-900">
+        Готовы к приключениям?
       </h2>
       <p class="text-gray-500 mb-8 text-center md:text-left">
-        Для бронирования экскурсии свяжитесь с нами в любом удобном мессенджере.
-        Мы ответим в течение 5 минут.
+        Напишите нам в мессенджеры, и мы подберем удобное время для вашей поездки.
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4">
@@ -849,17 +844,10 @@ const { Content } = await render(post);
           href="https://t.me/+66952588444"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex-1 bg-[#0088cc] hover:bg-[#007ab8] text-white text-center font-bold py-4 px-6 rounded-xl transition duration-300 shadow-md flex items-center justify-center gap-3"
+          class="flex-1 bg-[#0088cc] hover:bg-[#007ab8] text-white text-center font-bold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-md flex items-center justify-center gap-3"
         >
-          <svg
-            class="w-6 h-6 fill-current"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            ><path
-              d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"
-            ></path></svg
-          >
-          Написать в Telegram
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+          Telegram
         </a>
 
         <!-- Кнопка WhatsApp -->
@@ -867,17 +855,10 @@ const { Content } = await render(post);
           href="https://wa.me/66952588444"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white text-center font-bold py-4 px-6 rounded-xl transition duration-300 shadow-md flex items-center justify-center gap-3"
+          class="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white text-center font-bold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-md flex items-center justify-center gap-3"
         >
-          <svg
-            class="w-6 h-6 fill-current"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            ><path
-              d="M11.996 0A12 12 0 0 0 0 12a11.968 11.968 0 0 0 1.611 6.002L0 24l6.155-1.614A11.966 11.966 0 0 0 11.996 24C18.621 24 24 18.62 24 12c0-6.621-5.379-12-12.004-12zm6.758 17.21c-.287.808-1.666 1.543-2.317 1.63-.538.071-1.22.146-3.82-1.026-3.328-1.493-5.467-4.93-5.632-5.155-.164-.225-1.344-1.787-1.344-3.411 0-1.624.84-2.42 1.139-2.736.298-.316.646-.395.861-.395.215 0 .43.002.616.012.203.01.472-.08.736.56.275.666.896 2.18.975 2.338.08.158.132.343.032.553-.1.21-.151.342-.298.513-.146.171-.314.368-.445.513-.146.158-.303.333-.122.65.18.315.803 1.328 1.716 2.146 1.18.10.6 2.158 2.502.43.145.556.342.731.25.908-.092 1.077.29 1.164.5.342.544.757 1.054.896 1.054.14 0 .341-.053.473-.25.132-.198.537-.633.684-.85.146-.217.292-.18.528-.093.236.086 1.494.704 1.751.81.258.106.43.158.494.246.064.088.064.513-.223 1.321z"
-            ></path></svg
-          >
-          Написать в WhatsApp
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.996 0A12 12 0 0 0 0 12a11.968 11.968 0 0 0 1.611 6.002L0 24l6.155-1.614A11.966 11.966 0 0 0 11.996 24C18.621 24 24 18.62 24 12c0-6.621-5.379-12-12.004-12zm6.758 17.21c-.287.808-1.666 1.543-2.317 1.63-.538.071-1.22.146-3.82-1.026-3.328-1.493-5.467-4.93-5.632-5.155-.164-.225-1.344-1.787-1.344-3.411 0-1.624.84-2.42 1.139-2.736.298-.316.646-.395.861-.395.215 0 .43.002.616.012.203.01.472-.08.736.56.275.666.896 2.18.975 2.338.08.158.132.343.032.553-.1.21-.151.342-.298.513-.146.171-.314.368-.445.513-.146.158-.303.333-.122.65.18.315.803 1.328 1.716 2.146 1.18.10.6 2.158 2.502.43.145.556.342.731.25.908-.092 1.077.29 1.164.5.342.544.757 1.054.896 1.054.14 0 .341-.053.473-.25.132-.198.537-.633.684-.85.146-.217.292-.18.528-.093.236.086 1.494.704 1.751.81.258.106.43.158.494.246.064.088.064.513-.223 1.321z"/></svg>
+          WhatsApp
         </a>
       </div>
     </div>
@@ -885,48 +866,17 @@ const { Content } = await render(post);
 </Layout>
 
 <style is:global>
-  .markdown-content p {
-    margin-bottom: 1.5rem;
+  .markdown-content p { margin-bottom: 1.5rem; }
+  .markdown-content h2 { 
+    font-size: 1.5rem; font-weight: 900; margin-top: 2.5rem; margin-bottom: 1rem; 
+    text-transform: uppercase; color: #111827; letter-spacing: 0.05em; 
   }
-  .markdown-content h2 {
-    font-size: 1.5rem;
-    font-weight: 900;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    color: #111827;
-    letter-spacing: 0.05em;
+  .markdown-content h3 { font-size: 1.25rem; font-weight: 800; margin-top: 2rem; margin-bottom: 0.75rem; color: #1f2937; }
+  .markdown-content ul { list-style-type: none; padding-left: 0; margin-bottom: 1.5rem; }
+  .markdown-content li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+  .markdown-content li::before { 
+    content: "•"; color: #E6C06D; font-weight: bold; position: absolute; left: 0; font-size: 1.2em; line-height: 1; 
   }
-  .markdown-content h3 {
-    font-size: 1.25rem;
-    font-weight: 800;
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-    color: #1f2937;
-  }
-  .markdown-content ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin-bottom: 1.5rem;
-  }
-  .markdown-content li {
-    margin-bottom: 0.75rem;
-    padding-left: 1.5rem;
-    position: relative;
-  }
-  .markdown-content li::before {
-    content: "•";
-    color: #2563eb;
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    font-size: 1.2em;
-    line-height: 1;
-  }
-  .markdown-content strong {
-    color: #111827;
-    font-weight: 800;
-  }
+  .markdown-content strong { color: #111827; font-weight: 800; }
 </style>
-
 ```

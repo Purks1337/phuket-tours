@@ -4,10 +4,8 @@ import CategorySection from '../components/CategorySection.astro';
 import TourRow from '../components/TourRow.astro';
 import { getCollection } from 'astro:content';
 
-// Получаем все экскурсии из коллекции
 const allExcursions = await getCollection('excursions');
 
-// Группируем их по категориям
 const groupedExcursions = allExcursions.reduce((acc, tour) => {
   const category = tour.data.category;
   if (!acc[category]) {
@@ -17,7 +15,6 @@ const groupedExcursions = allExcursions.reduce((acc, tour) => {
   return acc;
 }, {} as Record<string, typeof allExcursions>);
 
-// Задаем нужный порядок категорий
 const categoryOrder = [
   "🔥 ХИТЫ 🔥",
   "МОРСКИЕ",
@@ -25,7 +22,6 @@ const categoryOrder = [
   "НЕОБЫЧНЫЕ"
 ];
 
-// Сортируем сгруппированные категории
 const sortedCategories = Object.entries(groupedExcursions).sort(([categoryA], [categoryB]) => {
   const indexA = categoryOrder.indexOf(categoryA);
   const indexB = categoryOrder.indexOf(categoryB);
@@ -35,18 +31,18 @@ const sortedCategories = Object.entries(groupedExcursions).sort(([categoryA], [c
 
 <Layout title="Bounty Tours | Экскурсии на Пхукете">
   
-  <!-- Hero-секция: воздушная, без лишних контейнеров -->
-  <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-20 mt-10">
+  <!-- Hero-секция -->
+  <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-20 mt-10 px-4">
     <h1 class="text-4xl md:text-6xl font-black mb-6 text-gray-900 tracking-tight leading-tight">
       Экскурсии на Пхукете
     </h1>
-    <p class="text-lg md:text-m text-gray-600 mb-10">
+    <p class="text-lg md:text-xl text-gray-600 mb-10">
       Бронируйте лучшие морские и наземные приключения без предоплаты за 5 минут
     </p>
 
     <!-- Кнопки мессенджеров -->
     <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
-      <a href="https://t.me/+66952588444" target="_blank" rel="noopener noreferrer" class="bg-[#0088cc] hover:bg-[#007ab8] text-white py-4 px-8 rounded-xl font-bold flex items-center justify-center gap-3 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/20">
+      <a href="https://t.me/+66952588444" target="_blank" rel="noopener noreferrer" class="bg-[#E6C06D] hover:bg-[#F5DE8B] text-gray-900 py-4 px-8 rounded-xl font-bold flex items-center justify-center gap-3 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-yellow-500/20">
         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
         Telegram
       </a>
@@ -58,7 +54,7 @@ const sortedCategories = Object.entries(groupedExcursions).sort(([categoryA], [c
     </div>
   </div>
 
-  <!-- ШАПКА ТАБЛИЦЫ (скрыта на мобилках) -->
+  <!-- ШАПКА ТАБЛИЦЫ -->
   <div class="hidden lg:grid grid-cols-[minmax(200px,_1fr)_auto_120px_120px_100px] gap-6 pt-4 pb-2 border-t border-gray-800 mb-6 font-bold text-[13px] text-gray-800 items-end">
     <div class="pl-4">Название экскурсии</div>
     <div class="w-[180px]"></div>
