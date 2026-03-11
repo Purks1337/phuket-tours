@@ -12,15 +12,16 @@ interface Props {
 
 const { id, title, subtitle, priceAdult, priceChild, childAge, pricePrefix = "", badges = [] } = Astro.props;
 ---
-<div class="group grid grid-cols-1 lg:grid-cols-[1fr_auto_120px_120px_100px] gap-6 py-5 px-5 border border-gray-100 bg-white rounded-2xl items-center transition-all duration-500 ease-out hover:shadow-md hover:border-teal-100 hover:-translate-y-0.5">
+<div class="group grid grid-cols-1 lg:grid-cols-[1fr_auto_120px_120px_100px] gap-6 py-5 px-5 border border-gray-100 bg-white rounded-2xl items-center transition-all duration-300 hover:shadow-md hover:border-[#E6C06D]/30 hover:-translate-y-0.5">
   
   <div class="flex flex-col">
-    <h3 class="text-[17px] font-bold text-gray-800 leading-tight group-hover:text-teal-600 transition-colors">{title}</h3>
+    <h3 class="text-[17px] font-bold text-gray-800 leading-tight group-hover:text-gray-900 transition-colors">{title}</h3>
     {subtitle && <p class="text-sm text-gray-500 mt-1">{subtitle}</p>}
   </div>
 
   <div class="w-full lg:w-[180px]">
-    <a href={`/excursions/${id}`} class="block w-full text-center bg-gray-900 group-hover:bg-[#00d0b5] text-white font-bold text-[13px] px-4 py-3 rounded-xl transition-all duration-300">
+    <!-- Кнопка: фон черный, при наведении золотой, текст черный -->
+    <a href={`/excursions/${id}`} class="block w-full text-center bg-gray-900 group-hover:bg-[#E6C06D] text-white group-hover:text-gray-900 font-bold text-[13px] px-4 py-3 rounded-xl transition-all duration-300">
       Читать описание
     </a>
   </div>
