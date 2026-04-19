@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CategorySection from "../components/CategorySection.astro";
+import TourRow from "../components/TourRow.astro";
+import { getCollection } from "astro:content";
+
+const allExcursions = await getCollection("excursions");
+
+// Фильтруем экскурсии (если city не указан, по умолчанию считаем Пхукетом)
+const phuketExcursions = allExcursions.filter((tour) => {
+  const city = tour.data.city?.toLowerCase() || "пхукет";
+  return city === "пхукет" || city === "phuket";
+});
+
+const groupedExcursions = phuketExcursions.reduce(
+  (acc, tour) => {
+    const category = tour.data.category;
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(tour);
+    return acc;
+  },
+  {} as Record<string, typeof phuketExcursions>,
+);
+
+const categoryOrder = ["🔥 ХИТЫ 🔥", "МОРСКИЕ", "НАЗЕМНЫЕ", "НЕОБЫЧНЫЕ"];
+
+const sortedCategories = Object.entries(groupedExcursions).sort(
+  ([categoryA], [categoryB]) => {
+    const indexA = categoryOrder.indexOf(categoryA);
+    const indexB = categoryOrder.indexOf(categoryB);
+    return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
+  },
+);
+---
+
+<Layout title="Bounty Tours | Экскурсии на Пхукете">
+  <!-- Hero-секция с фоном -->
+  <div class="max-w-[1200px] mx-auto px-4 mt-8 mb-12">
+    <div class="relative w-full h-[400px] flex items-center justify-center rounded-2xl overflow-hidden shadow-2xl">
+      <div
+        class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style="background-image: url('/src/assets/images/thai-webp-converted/Phuket.webp');"
+      ></div>
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="relative z-10 text-center px-4 max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-6xl font-black mb-6 text-white tracking-tight leading-tight">
+          Экскурсии на Пхукете
+        </h1>
+        <p class="text-lg md:text-xl text-gray-200 mb-10">
+          Бронируйте лучшие морские и наземные приключения без предоплаты за 5 минут
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-[1200px] mx-auto px-4">
+    <!-- ШАПКА ТАБЛИЦЫ -->
+    <div
+      class="hidden lg:grid grid-cols-[minmax(200px,_1fr)_auto_120px_120px_100px] gap-6 pt-4 pb-2 border-t border-gray-800 mb-6 font-bold text-[13px] text-gray-800 items-end"
+    >
+      <div class="pl-4">Название экскурсии</div>
+      <div class="w-[180px]"></div>
+      <div class="text-center leading-tight">Стоимость<br />(взрослый)</div>
+      <div class="text-center leading-tight">Стоимость<br />(ребенок)</div>
+      <div class="text-center leading-tight">Возраст<br />ребенка</div>
+    </div>
+
+    <!-- Список категорий -->
+    <div class="flex flex-col gap-8 pb-24">
+      {
+        sortedCategories.map(([category, tours]) => (
+          <CategorySection title={category}>
+            <div class="flex flex-col gap-3">
+              {tours.map((tour) => (
+                <TourRow
+                  id={tour.id}
+                  title={tour.data.title}
+                  subtitle={tour.data.subtitle}
+                  priceAdult={tour.data.priceAdult}
+                  priceChild={tour.data.priceChild}
+                  childAge={tour.data.childAge}
+                  pricePrefix={tour.data.pricePrefix}
+                  badges={tour.data.badges}
+                />
+              ))}
+            </div>
+          </CategorySection>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

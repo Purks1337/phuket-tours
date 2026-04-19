@@ -13,6 +13,7 @@ export const collections = {
       childAge: z.string().optional(), // Возраст ребенка
       pricePrefix: z.string().optional(), // Префикс для цены (например, "от")
       badges: z.array(z.string()).optional(),
+      city: z.string().optional(), // Город (например, "Phuket" или "Pattaya")
       cover: image().optional(), // Обложка теперь опциональна в каталоге
     })
   })

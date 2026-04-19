@@ -1,43 +1,60 @@
-# Astro Starter Kit: Minimal
+# Bounty Tours | Каталог экскурсий
 
-```sh
-npm create astro@latest -- --template minimal
+Сайт-каталог туристических экскурсий (Пхукет и Паттайя), построенный на фреймворке [Astro](https://astro.build/).
+
+## 🚀 Как добавлять и редактировать экскурсии
+
+Все данные об экскурсиях хранятся в виде Markdown-файлов (`.md`) в папке `src/content/excursions/`. 
+
+Чтобы добавить новую экскурсию, просто создайте новый файл `.md` в этой папке. В самом начале файла должен присутствовать блок с метаданными (Frontmatter).
+
+### Образец файла экскурсии:
+
+```yaml
+---
+title: "Острова Пхи-Пхи"
+subtitle: "Ранний выезд, без толп"
+category: "МОРСКИЕ"
+priceAdult: 1800
+priceChild: 1200
+childAge: "4-11 лет"
+pricePrefix: "от"
+badges: ["ХИТ", "Русский гид"]
+city: "Пхукет"
+cover: "../../assets/images/phiphi.jpg"
+---
+
+Опциональный текст: сюда можно добавлять полноценное описание экскурсии, расписание, программу и т.д.
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Поля метаданных (Frontmatter):
 
-## 🚀 Project Structure
+- **`title`** (строка, обязательно) — основное название.
+- **`subtitle`** (строка, опционально) — небольшое описание под названием.
+- **`category`** (строка, обязательно) — категория экскурсии. От этого зависит, в каком блоке она появится. Основные категории: `🔥 ХИТЫ 🔥`, `МОРСКИЕ`, `НАЗЕМНЫЕ`, `НЕОБЫЧНЫЕ`.
+- **`priceAdult`** (число, обязательно) — стоимость взрослого билета.
+- **`priceChild`** (число, опционально) — стоимость детского билета.
+- **`childAge`** (строка, опционально) — примечание о возрасте ребенка.
+- **`pricePrefix`** (строка, опционально) — например, слово "от".
+- **`badges`** (массив строк, опционально) — плашки, которые выводятся поверх экскурсии (например: `["Хит", "Sale"]`).
+- **`cover`** (путь к картинке, опционально) — фоновое изображение для карточки товара.
+- **`city`** (строка, опционально) — **Важное поле для разделения по городам.**
+  - Можно указать `"Пхукет"`, `"phuket"` — экскурсия будет видна только на странице Пхукета.
+  - Можно указать `"Паттайя"`, `"pattaya"` — экскурсия будет видна только на странице Паттайи.
+  - *Если поле не указано (как в более старых файлах), экскурсия по умолчанию будет показана в разделе Пхукета.*
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📂 Структура проекта (основные папки)
+- `src/pages/` — маршруты сайта (главная `index.astro`, `phuket.astro`, `pattaya.astro`).
+- `src/content/excursions/` — файлы `.md` с карточками экскурсий.
+- `src/content.config.ts` — схема проверки и валидации полей из markdown (с использованием Zod).
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## 🧞 Команды разработки
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Все команды выполняются в корне проекта через терминал:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Команда | Что делает |
+| :--- | :--- |
+| `npm install` | Устанавливает все необходимые пакеты |
+| `npm run dev` | Запускает сайт в режиме разработки (`localhost:4321`) |
+| `npm run build` | Собирает оптимизированный сайт для публикации в папку `dist/` |
+| `npm run preview` | Позволяет протестировать собранный сайт локально |
