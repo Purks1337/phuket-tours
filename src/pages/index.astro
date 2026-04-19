@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import CategorySection from "../components/CategorySection.astro";
 import TourRow from "../components/TourRow.astro";
 import { getCollection } from "astro:content";
+import PhuketImg from "../assets/images/thai-webp-converted/Phuket.webp";
+import PattayaImg from "../assets/images/thai-webp-converted/Pattaya.webp";
 
 const allExcursions = await getCollection("excursions");
 
@@ -88,7 +90,7 @@ const sortedCategories = Object.entries(groupedExcursions).sort(
       <a
         href="/phuket"
         class="group relative flex-1 flex items-center justify-center rounded-2xl bg-cover bg-center bg-no-repeat overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
-        style="background-image: url('/src/assets/images/thai-webp-converted/Phuket.webp');"
+        style={`background-image: url('${PhuketImg.src}');`}
       >
         <!-- Затемняющий оверлей -->
         <div class="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/30"></div>
@@ -105,7 +107,7 @@ const sortedCategories = Object.entries(groupedExcursions).sort(
       <a
         href="/pattaya"
         class="group relative flex-1 flex items-center justify-center rounded-2xl bg-cover bg-center bg-no-repeat overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
-        style="background-image: url('/src/assets/images/thai-webp-converted/Pattaya.webp');"
+        style={`background-image: url('${PattayaImg.src}');`}
       >
         <!-- Затемняющий оверлей -->
         <div class="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/30"></div>
