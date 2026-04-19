@@ -6,15 +6,21 @@ export const collections = {
     loader: glob({ pattern: "**/*.md", base: "./src/content/excursions" }),
     schema: ({ image }) => z.object({
       title: z.string(),
-      subtitle: z.string().optional(), // Подзаголовок (как "есть ранний выезд")
+      subtitle: z.string().optional(),
       category: z.string(),
       priceAdult: z.number(),
-      priceChild: z.number().optional(), // Цена для ребенка
-      childAge: z.string().optional(), // Возраст ребенка
-      pricePrefix: z.string().optional(), // Префикс для цены (например, "от")
+      priceChild: z.number().optional(),
+      childAge: z.string().optional(),
+      pricePrefix: z.string().optional(),
       badges: z.array(z.string()).optional(),
-      city: z.string().optional(), // Город (например, "Phuket" или "Pattaya")
-      cover: image().optional(), // Обложка теперь опциональна в каталоге
+      city: z.string().optional(),
+      cover: image().optional(),
+      packages: z.array(z.object({
+        title: z.string(),
+        priceAdult: z.number(),
+        priceChild: z.number().optional(),
+        childAge: z.string().optional(),
+      })).optional()
     })
   })
 };

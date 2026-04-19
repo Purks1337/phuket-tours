@@ -13,15 +13,19 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const isPattaya = post.data.city && (post.data.city.toLowerCase() === "паттайя" || post.data.city.toLowerCase() === "pattaya");
+const backUrl = isPattaya ? "/pattaya" : "/phuket";
+const backText = isPattaya ? "Назад к экскурсиям Паттайи" : "Назад к экскурсиям Пхукета";
 ---
 
 <Layout title={`${post.data.title} | Bounty Tours`} description={`Бронируйте экскурсию «${post.data.title}» на Пхукете. ${post.data.subtitle || ''} Цена: ${post.data.priceAdult} бат. Забронируйте сейчас!`}>
   <div class="mb-8">
     <a
-      href="/"
+      href={backUrl}
       class="text-gray-500 hover:text-[#E6C06D] font-bold flex items-center gap-2 transition-colors duration-300"
     >
-      <span class="text-xl">←</span> Назад в каталог
+      <span class="text-xl">←</span> {backText}
     </a>
   </div>
 
@@ -60,17 +64,61 @@ const { Content } = await render(post);
 
   <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-12 mb-10">
     <!-- Блок с ценой -->
-    <div class="bg-[#fdf6e3] rounded-2xl p-6 md:p-8 mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-[#E6C06D]/30">
-      <div>
-        <span class="block text-[11px] text-gray-700 uppercase tracking-widest font-bold mb-1">Стоимость (Взрослый)</span>
-        <span class="text-4xl md:text-5xl font-black text-gray-900">
-          {post.data.pricePrefix || ""} {post.data.priceAdult} <span class="text-xl font-normal text-gray-500">бат</span>
-        </span>
+    {post.data.packages && post.data.packages.length > 0 ? (
+      <div class="mb-10">
+        <h3 class="text-2xl font-black uppercase tracking-tight mb-6 text-gray-900">Варианты программы</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {post.data.packages.map((pkg) => (
+            <div class="bg-[#fdf6e3] rounded-2xl p-6 border border-[#E6C06D]/30 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+              <h4 class="text-lg font-bold text-gray-900 mb-4">{pkg.title}</h4>
+              <div class="space-y-2 mb-6">
+                <div class="flex justify-between items-center border-b border-[#E6C06D]/20 pb-2">
+                  <span class="text-gray-600 text-sm">Взрослый билет</span>
+                  <span class="font-black text-gray-900 text-xl">{pkg.priceAdult} <span class="font-normal text-sm text-gray-500">бат</span></span>
+                </div>
+                {pkg.priceChild && (
+                  <div class="flex justify-between items-center border-b border-[#E6C06D]/20 pb-2">
+                    <span class="text-gray-600 text-sm flex flex-col">
+                      Детский билет
+                      {pkg.childAge && <span class="text-[10px] opacity-70">Возраст: {pkg.childAge}</span>}
+                    </span>
+                    <span class="font-black text-gray-900 text-xl">{pkg.priceChild} <span class="font-normal text-sm text-gray-500">бат</span></span>
+                  </div>
+                )}
+              </div>
+              <a href="#booking" class="bg-gray-900 text-[#E6C06D] hover:bg-[#E6C06D] hover:text-gray-900 px-4 py-3 rounded-xl font-bold flex justify-center transition-colors shadow-sm text-sm uppercase tracking-wide">
+                Забронировать
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
-      <a href="#booking" class="bg-[#E6C06D] text-gray-900 px-8 py-4 rounded-xl font-bold hover:bg-[#F5DE8B] hover:scale-105 active:scale-95 transition-all w-full md:w-auto text-center shadow-lg shadow-yellow-500/20">
-        Забронировать
-      </a>
-    </div>
+    ) : (
+      <div class="bg-[#fdf6e3] rounded-2xl p-6 md:p-8 mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-[#E6C06D]/30">
+        <div class="flex flex-col gap-4">
+          <div>
+            <span class="block text-[11px] text-gray-700 uppercase tracking-widest font-bold mb-1">Стоимость (Взрослый)</span>
+            <span class="text-4xl md:text-5xl font-black text-gray-900">
+              {post.data.pricePrefix || ""} {post.data.priceAdult} <span class="text-xl font-normal text-gray-500">бат</span>
+            </span>
+          </div>
+          {post.data.priceChild && (
+            <div>
+              <span class="block text-[11px] text-gray-700 uppercase tracking-widest font-bold mb-1 flex items-center gap-2">
+                Детский билет
+                {post.data.childAge && <span class="text-[9px] bg-gray-200 text-gray-600 px-2 py-0.5 rounded-full">{post.data.childAge}</span>}
+              </span>
+              <span class="text-2xl md:text-3xl font-black text-gray-900">
+                {post.data.pricePrefix || ""} {post.data.priceChild} <span class="text-lg font-normal text-gray-500">бат</span>
+              </span>
+            </div>
+          )}
+        </div>
+        <a href="#booking" class="bg-[#E6C06D] text-gray-900 px-8 py-4 rounded-xl font-bold hover:bg-[#F5DE8B] hover:scale-105 active:scale-95 transition-all w-full md:w-auto text-center shadow-lg shadow-yellow-500/20">
+          Забронировать
+        </a>
+      </div>
+    )}
 
     <!-- Текст из Markdown -->
     <div class="markdown-content text-gray-700 leading-relaxed text-lg">

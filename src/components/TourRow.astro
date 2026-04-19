@@ -8,9 +8,11 @@ interface Props {
   childAge?: string;
   pricePrefix?: string;
   badges?: string[];
+  packages?: Array<{ title: string; priceAdult: number; priceChild?: number; childAge?: string }>;
 }
 
-const { id, title, subtitle, priceAdult, priceChild, childAge, pricePrefix = "", badges = [] } = Astro.props;
+const { id, title, subtitle, priceAdult, priceChild, childAge, badges = [], packages } = Astro.props;
+const pricePrefix = Astro.props.pricePrefix || (packages && packages.length > 0 ? "от" : "");
 ---
 <div class="group grid grid-cols-1 lg:grid-cols-[1fr_auto_120px_120px_100px] gap-6 py-5 px-5 border border-gray-100 bg-white rounded-2xl items-center transition-all duration-300 hover:shadow-md hover:border-[#E6C06D]/30 hover:-translate-y-0.5">
   
