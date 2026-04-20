@@ -5,7 +5,7 @@ priceAdult: 700
 priceChild: 600
 pricePrefix: "от"
 childAge: "90-120 см"
-cover: "../../assets/images/excursions/simon-cabaret.jpeg"
+cover: "../../assets/images/excursions-webp-converted/simon-cabaret.webp"
 packages:
   - title: "Балкон"
     priceAdult: 700

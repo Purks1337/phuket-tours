@@ -3,7 +3,7 @@ title: "Остров фантазий FantaSea"
 category: "НЕОБЫЧНЫЕ"
 priceAdult: 1800
 pricePrefix: "от"
-cover: "../../assets/images/excursions/fantasea.png"
+cover: "../../assets/images/excursions-webp-converted/fantasea.webp"
 packages:
   - title: "Только шоу"
     priceAdult: 1800

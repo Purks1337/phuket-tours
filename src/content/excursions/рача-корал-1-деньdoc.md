@@ -4,7 +4,7 @@ category: "МОРСКИЕ"
 priceAdult: 1200
 priceChild: 1100
 childAge: "от 4 до 10 лет"
-cover: "../../assets/images/excursions/рача-корал-1-деньdoc.png"
+cover: "../../assets/images/excursions-webp-converted/рача-корал-1-деньdoc.webp"
 ---
 
 ОБЗОР

@@ -4,7 +4,7 @@ category: "МОРСКИЕ"
 priceAdult: 2500
 priceChild: 2300
 childAge: "от 4 до 10 лет"
-cover: "../../assets/images/excursions/пхи-пхи-на-катамаране-dday.jpeg"
+cover: "../../assets/images/excursions-webp-converted/пхи-пхи-на-катамаране-dday.webp"
 ---
 
 ОБЗОР

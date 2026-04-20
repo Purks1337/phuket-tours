@@ -4,7 +4,7 @@ category: "МОРСКИЕ"
 priceAdult: 2600
 priceChild: 2400
 childAge: "от 4 до 10 лет"
-cover: "../../assets/images/excursions/пхипхинакатамаранеcраннимвыездом.jpg"
+cover: "../../assets/images/excursions-webp-converted/пхипхинакатамаранеcраннимвыездом.webp"
 ---
 
 ОБЗОР

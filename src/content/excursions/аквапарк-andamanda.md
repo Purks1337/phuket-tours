@@ -5,7 +5,7 @@ priceAdult: 1450
 priceChild: 1300
 childAge: "90-120 см"
 pricePrefix: "от"
-cover: "../../assets/images/excursions/аквапарк-andamanda.jpeg"
+cover: "../../assets/images/excursions-webp-converted/аквапарк-andamanda.webp"
 packages:
   - title: "Без трансфера"
     priceAdult: 1450

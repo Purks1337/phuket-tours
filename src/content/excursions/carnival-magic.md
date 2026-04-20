@@ -5,7 +5,7 @@ priceAdult: 2100
 priceChild: 2100
 pricePrefix: "от"
 childAge: "до 140 см"
-cover: "../../assets/images/excursions/carnival-magic.jpeg"
+cover: "../../assets/images/excursions-webp-converted/carnival-magic.webp"
 packages:
   - title: "Только шоу"
     priceAdult: 2100

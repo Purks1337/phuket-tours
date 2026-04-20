@@ -5,7 +5,7 @@ category: "НАЗЕМНЫЕ"
 priceAdult: 4500
 priceChild: 5500
 childAge: "Экскурсия на гидроциклах по островам"
-cover: "../../assets/images/excursions/jet-ski-со-слонами.png"
+cover: "../../assets/images/excursions-webp-converted/jet-ski-со-слонами.webp"
 ---
 
 ОБЗОР

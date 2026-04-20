@@ -5,7 +5,7 @@ priceAdult: 1600
 priceChild: 1400
 childAge: "100-140 см"
 pricePrefix: "от"
-cover: "../../assets/images/excursions/siam-niramit.png"
+cover: "../../assets/images/excursions-webp-converted/siam-niramit.webp"
 packages:
   - title: "Silver (только шоу)"
     priceAdult: 1600
