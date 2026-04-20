@@ -31,7 +31,7 @@ const sortedCategories = Object.entries(groupedExcursions).sort(
 );
 ---
 
-<Layout title="Bounty Tours | Экскурсии на Пхукете">
+<Layout title="Bounty Tours | Экскурсии в Тайланде">
   <!-- Hero-секция -->
   <div
     class="flex flex-col items-center text-center max-w-3xl mx-auto mb-20 mt-10 px-4"
@@ -39,10 +39,10 @@ const sortedCategories = Object.entries(groupedExcursions).sort(
     <h1
       class="text-4xl md:text-6xl font-black mb-6 text-gray-900 tracking-tight leading-tight"
     >
-      Экскурсии на Пхукете
+      Экскурсии в Тайланде
     </h1>
     <p class="text-lg md:text-xl text-gray-600 mb-10">
-      Бронируйте лучшие морские и наземные приключения без предоплаты за 5 минут
+      Бронируйте лучшие морские и наземные приключения
     </p>
 
     <!-- Кнопки мессенджеров -->
@@ -84,7 +84,11 @@ const sortedCategories = Object.entries(groupedExcursions).sort(
   </div>
 
   <div class="mx-auto py-10 pb-24 max-w-[1200px] px-4">
-    <h2 class="text-3xl md:text-5xl font-black mb-10 text-gray-900 text-center tracking-tight">Выберите, где хотите экскурсию</h2>
+    <h2
+      class="text-3xl md:text-5xl font-black mb-10 text-gray-900 text-center tracking-tight"
+    >
+      Выберите город
+    </h2>
     <div class="flex flex-col md:flex-row h-[400px] w-full gap-6">
       <!-- Карточка 1 -->
       <a
@@ -93,7 +97,10 @@ const sortedCategories = Object.entries(groupedExcursions).sort(
         style={`background-image: url('${PhuketImg.src}');`}
       >
         <!-- Затемняющий оверлей -->
-        <div class="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/30"></div>
+        <div
+          class="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/30"
+        >
+        </div>
 
         <!-- Текст (с z-index, чтобы быть поверх оверлея) -->
         <h3
@@ -110,7 +117,10 @@ const sortedCategories = Object.entries(groupedExcursions).sort(
         style={`background-image: url('${PattayaImg.src}');`}
       >
         <!-- Затемняющий оверлей -->
-        <div class="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/30"></div>
+        <div
+          class="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/30"
+        >
+        </div>
 
         <!-- Текст -->
         <h3
