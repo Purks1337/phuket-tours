@@ -1,5 +1,5 @@
 ---
-title: "Siam Niramit"
+title: "Вечернее шоу Siam Niramit"
 category: "НЕОБЫЧНЫЕ"
 priceAdult: 1600
 priceChild: 1400
@@ -25,6 +25,8 @@ packages:
   - title: "Platinum (шоу + ужин)"
     priceAdult: 2000
     priceChild: 1800
+  - title: "Трансфер (туда-обратно)"
+    priceAdult: 300
 ---
 
 ### ОБЗОР

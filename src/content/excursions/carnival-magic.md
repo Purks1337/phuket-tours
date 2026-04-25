@@ -1,5 +1,5 @@
 ---
-title: "Carnival Magic"
+title: "Вечернее шоу Carnival Magic"
 category: "НЕОБЫЧНЫЕ"
 priceAdult: 2100
 priceChild: 2100
@@ -13,6 +13,12 @@ packages:
   - title: "Шоу + ужин"
     priceAdult: 2500
     priceChild: 2400
+  - title: "Только шоу с трансфером"
+    priceAdult: 2400
+    priceChild: 2400
+  - title: "Шоу + ужин с трансфером"
+    priceAdult: 2800
+    priceChild: 2700
 ---
 
 ### ОБЗОР

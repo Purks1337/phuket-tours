@@ -3,7 +3,7 @@ title: "Пхи-Пхи на катамаране с ранним выездом"
 category: "МОРСКИЕ"
 priceAdult: 2600
 priceChild: 2400
-childAge: "от 4 до 10 лет"
+childAge: "4-10 лет"
 cover: "../../assets/images/excursions-webp-converted/пхипхинакатамаранеcраннимвыездом.webp"
 ---
 

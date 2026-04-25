@@ -3,7 +3,7 @@ title: "Рача Корал 1 день"
 category: "МОРСКИЕ"
 priceAdult: 1200
 priceChild: 1100
-childAge: "от 4 до 10 лет"
+childAge: "4-10 лет"
 cover: "../../assets/images/excursions-webp-converted/рача-корал-1-деньdoc.webp"
 ---
 

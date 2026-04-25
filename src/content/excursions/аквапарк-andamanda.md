@@ -10,11 +10,11 @@ packages:
   - title: "Без трансфера"
     priceAdult: 1450
     priceChild: 1300
-    childAge: "90-120 см"
+    childAge: "от 4 лет, рост 90-120 см"
   - title: "С трансфером"
     priceAdult: 1850
     priceChild: 1700
-    childAge: "90-120 см"
+    childAge: "от 4 лет, рост 90-120 см"
 ---
 
 ### ОБЗОР

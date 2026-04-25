@@ -1,5 +1,5 @@
 ---
-title: "Остров фантазий FantaSea"
+title: "Вечернее шоу FantaSea"
 category: "НЕОБЫЧНЫЕ"
 priceAdult: 1800
 pricePrefix: "от"
@@ -10,7 +10,7 @@ packages:
   - title: "Шоу + ужин"
     priceAdult: 2200
     priceChild: 2000
-    childAge: "90-140 см"
+    childAge: "от 4 лет, рост 90-140 см"
 ---
 
 ### ОБЗОР

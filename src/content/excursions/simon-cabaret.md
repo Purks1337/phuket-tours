@@ -1,5 +1,5 @@
 ---
-title: "Simon Cabaret"
+title: "Вечернее шоу Simon Cabaret"
 category: "НЕОБЫЧНЫЕ"
 priceAdult: 700
 priceChild: 600
