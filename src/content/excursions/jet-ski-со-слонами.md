@@ -1,6 +1,6 @@
 ---
 title: "Jet Ski со слонами"
-subtitle: "c русскоязычным инструктором"
+subtitle: "C русскоязычным инструктором"
 category: "НАЗЕМНЫЕ"
 priceAdult: 4500
 priceChild: 5500

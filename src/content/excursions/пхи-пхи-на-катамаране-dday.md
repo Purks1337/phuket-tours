@@ -1,5 +1,5 @@
 ---
-title: "Пхи Пхи на катамаране"
+title: "Пхи-Пхи на катамаране"
 category: "МОРСКИЕ"
 priceAdult: 2500
 priceChild: 2300
