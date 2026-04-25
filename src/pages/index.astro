@@ -8,6 +8,15 @@ import PattayaImg from "../assets/images/thai-webp-converted/Pattaya.webp";
 
 const allExcursions = await getCollection("excursions");
 
+const byExcursionTitle = (
+  a: (typeof allExcursions)[number],
+  b: (typeof allExcursions)[number],
+) => {
+  const aKey = (a.data.title ?? a.id).toString().trim();
+  const bKey = (b.data.title ?? b.id).toString().trim();
+  return aKey.localeCompare(bKey, "ru", { sensitivity: "base" });
+};
+
 const groupedExcursions = allExcursions.reduce(
   (acc, tour) => {
     const category = tour.data.category;
@@ -22,13 +31,13 @@ const groupedExcursions = allExcursions.reduce(
 
 const categoryOrder = ["🔥 ХИТЫ 🔥", "МОРСКИЕ", "НАЗЕМНЫЕ", "НЕОБЫЧНЫЕ"];
 
-const sortedCategories = Object.entries(groupedExcursions).sort(
-  ([categoryA], [categoryB]) => {
+const sortedCategories = Object.entries(groupedExcursions)
+  .sort(([categoryA], [categoryB]) => {
     const indexA = categoryOrder.indexOf(categoryA);
     const indexB = categoryOrder.indexOf(categoryB);
     return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
-  },
-);
+  })
+  .map(([category, tours]) => [category, [...tours].sort(byExcursionTitle)] as const);
 ---
 
 <Layout title="Bounty Tours | Экскурсии в Таиланде">

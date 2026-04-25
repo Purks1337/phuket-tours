@@ -1,5 +1,5 @@
 ---
-title: "Phi Phi Bamboo DDay Catamaran"
+title: "Пхи Пхи на катамаране"
 category: "МОРСКИЕ"
 priceAdult: 2500
 priceChild: 2300

@@ -1,5 +1,5 @@
 ---
-title: "Phi Phi Bamboo Catamaran c ранним выездом"
+title: "Пхи Пхи на катамаране с ранним выездом"
 category: "МОРСКИЕ"
 priceAdult: 2600
 priceChild: 2400
