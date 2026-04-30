@@ -242,7 +242,7 @@ cover: "../../assets/images/elephants.jpg"
 ---
 title: "Шоу, парки и концерты"
 subtitle: "Carnival, Siam Niramit, аквапарк, кабаре, экстрим и другие"
-category: "НЕОБЫЧНЫЕ"
+category: "ПО ПХУКЕТУ"
 pricePrefix: "от"
 priceAdult: 800
 cover: "../../assets/images/hanuman.jpg"
@@ -675,7 +675,7 @@ const categoryOrder = [
   "🔥 ХИТЫ 🔥",
   "МОРСКИЕ",
   "НАЗЕМНЫЕ",
-  "НЕОБЫЧНЫЕ"
+  "ПО ПХУКЕТУ"
 ];
 
 // Сортируем сгруппированные категории

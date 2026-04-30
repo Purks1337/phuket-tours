@@ -1,16 +1,16 @@
 ---
 title: "Jet Ski по островам"
 category: "МОРСКИЕ"
-priceAdult: 5000
+priceAdult: 5300
 pricePrefix: "от"
 cover: "../../assets/images/excursions-webp-converted/jet-ski-по-островам.webp"
 packages:
   - title: "Гидроцикл Yamaha (до 2-х чел) – англ. гид"
-    priceAdult: 5000
+    priceAdult: 5300
   - title: "Гидроцикл Sea-doo (до 2-х чел) – англ. гид"
-    priceAdult: 5200
+    priceAdult: 5500
   - title: "Гидроцикл Yamaha (до 2-х чел) – рус. гид"
-    priceAdult: 5400
+    priceAdult: 5700
 ---
 
 ### ОБЗОР

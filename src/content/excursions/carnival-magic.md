@@ -1,6 +1,6 @@
 ---
 title: "Вечернее шоу Carnival Magic"
-category: "НЕОБЫЧНЫЕ"
+category: "ПО ПХУКЕТУ"
 priceAdult: 2100
 priceChild: 2100
 pricePrefix: "от"

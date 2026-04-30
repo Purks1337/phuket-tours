@@ -1,8 +1,8 @@
 ---
 title: "Jet Ski со слонами"
 subtitle: "C русскоязычным инструктором"
-category: "НАЗЕМНЫЕ"
-priceAdult: 4500
+category: "МОРСКИЕ"
+priceAdult: 5900
 priceChild: 5500
 cover: "../../assets/images/excursions-webp-converted/jet-ski-со-слонами.webp"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Аквапарк Andamanda"
-category: "НЕОБЫЧНЫЕ"
+category: "ПО ПХУКЕТУ"
 priceAdult: 1450
 priceChild: 1300
 childAge: "90-120 см"

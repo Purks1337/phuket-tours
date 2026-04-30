@@ -1,6 +1,6 @@
 ---
 title: "Вечернее шоу Simon Cabaret"
-category: "НЕОБЫЧНЫЕ"
+category: "ПО ПХУКЕТУ"
 priceAdult: 700
 priceChild: 600
 pricePrefix: "от"

@@ -1,6 +1,6 @@
 ---
 title: "Вечернее шоу FantaSea"
-category: "НЕОБЫЧНЫЕ"
+category: "ПО ПХУКЕТУ"
 priceAdult: 1800
 pricePrefix: "от"
 cover: "../../assets/images/excursions-webp-converted/fantasea.webp"

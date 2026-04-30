@@ -34,7 +34,13 @@ const groupedExcursions = phuketExcursions.reduce(
   {} as Record<string, typeof phuketExcursions>,
 );
 
-const categoryOrder = ["🔥 ХИТЫ 🔥", "МОРСКИЕ", "НАЗЕМНЫЕ", "НЕОБЫЧНЫЕ"];
+const categoryOrder = [
+  "🔥 ХИТЫ 🔥",
+  "МОРСКИЕ",
+  "НАЗЕМНЫЕ",
+  "ПО ПХУКЕТУ",
+  "ПО ПАТТАЙЕ",
+];
 
 const sortedCategories = Object.entries(groupedExcursions)
   .sort(([categoryA], [categoryB]) => {

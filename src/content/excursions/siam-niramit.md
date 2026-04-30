@@ -1,6 +1,6 @@
 ---
 title: "Вечернее шоу Siam Niramit"
-category: "НЕОБЫЧНЫЕ"
+category: "ПО ПХУКЕТУ"
 priceAdult: 1600
 priceChild: 1400
 childAge: "100-140 см"

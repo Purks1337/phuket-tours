@@ -1,6 +1,6 @@
 ---
 title: "X Show (18+)"
-category: "НЕОБЫЧНЫЕ"
+category: "ПО ПХУКЕТУ"
 priceAdult: 1100
 childAge: "с 18 лет"
 cover: "../../assets/images/excursions-webp-converted/x-show.webp"

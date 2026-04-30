@@ -38,7 +38,7 @@ for item in data:
     if 'джип' in lower_text or 'квадроцикл' in lower_text or 'сафари' in lower_text or 'храм' in lower_text:
         category = "НАЗЕМНЫЕ"
     if 'шоу' in lower_text or 'кабаре' in lower_text or 'аквапарк' in lower_text or 'дельфин' in lower_text:
-        category = "НЕОБЫЧНЫЕ"
+        category = "ПО ПХУКЕТУ"
         
     # Find price lines
     price_parsing_active = False

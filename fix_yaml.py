@@ -4,7 +4,7 @@ import os
 fixes = {
     "аквапарк-andamanda": """---
 title: "Аквапарк Andamanda"
-category: "НЕОБЫЧНЫЕ"
+category: "ПО ПХУКЕТУ"
 priceAdult: 1450
 priceChild: 1300
 childAge: "90-120 см"
@@ -44,7 +44,7 @@ packages:
 ---""",
     "дельфинарий": """---
 title: "Дельфинарий"
-category: "НЕОБЫЧНЫЕ"
+category: "ПО ПХУКЕТУ"
 priceAdult: 700
 priceChild: 400
 childAge: "4-11 лет"
@@ -66,7 +66,7 @@ packages:
 ---""",
     "тайский-бокс": """---
 title: "Тайский бокс"
-category: "НЕОБЫЧНЫЕ"
+category: "ПО ПХУКЕТУ"
 priceAdult: 1500
 pricePrefix: "от"
 cover: "../../assets/images/excursions/тайский-бокс.jpeg"
@@ -78,7 +78,7 @@ packages:
 ---""",
     "siam-niramit": """---
 title: "Siam Niramit"
-category: "НЕОБЫЧНЫЕ"
+category: "ПО ПХУКЕТУ"
 priceAdult: 1600
 priceChild: 1400
 childAge: "100-140 см"
@@ -130,7 +130,7 @@ packages:
 ---""",
     "fantasea": """---
 title: "Остров фантазий FantaSea"
-category: "НЕОБЫЧНЫЕ"
+category: "ПО ПХУКЕТУ"
 priceAdult: 1800
 pricePrefix: "от"
 cover: "../../assets/images/excursions/fantasea.jpeg"
@@ -144,7 +144,7 @@ packages:
 ---""",
     "simon-cabaret": """---
 title: "Simon Cabaret"
-category: "НЕОБЫЧНЫЕ"
+category: "ПО ПХУКЕТУ"
 priceAdult: 700
 priceChild: 600
 pricePrefix: "от"
@@ -174,7 +174,7 @@ packages:
 ---""",
     "carnival-magic": """---
 title: "Carnival Magic"
-category: "НЕОБЫЧНЫЕ"
+category: "ПО ПХУКЕТУ"
 priceAdult: 2100
 priceChild: 2100
 pricePrefix: "от"
