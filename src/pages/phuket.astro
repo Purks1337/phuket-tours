@@ -16,11 +16,10 @@ const byExcursionTitle = (
   return aKey.localeCompare(bKey, "ru", { sensitivity: "base" });
 };
 
-// Фильтруем экскурсии (если city не указан, по умолчанию считаем Пхукетом)
-const phuketExcursions = allExcursions.filter((tour) => {
-  const city = tour.data.city?.toLowerCase() || "пхукет";
-  return city === "пхукет" || city === "phuket";
-});
+// Берем только экскурсии из архитектурного каталога Пхукета.
+const phuketExcursions = allExcursions.filter((tour) =>
+  tour.id.startsWith("phuket/")
+);
 
 const groupedExcursions = phuketExcursions.reduce(
   (acc, tour) => {

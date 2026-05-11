@@ -16,11 +16,10 @@ const byExcursionTitle = (
   return aKey.localeCompare(bKey, "ru", { sensitivity: "base" });
 };
 
-// Фильтруем экскурсии только для Паттайи
-const pattayaExcursions = allExcursions.filter((tour) => {
-  const city = tour.data.city?.toLowerCase() || "";
-  return city === "паттайя" || city === "pattaya";
-});
+// Берем только экскурсии из архитектурного каталога Паттайи.
+const pattayaExcursions = allExcursions.filter((tour) =>
+  tour.id.startsWith("pattaya/")
+);
 
 const groupedExcursions = pattayaExcursions.reduce(
   (acc, tour) => {
